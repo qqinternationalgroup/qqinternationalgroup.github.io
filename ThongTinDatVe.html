@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/btn_top.js"></script>
+    <title>Thông tin đặt vé</title>
+    <link rel="shortcut icon" href="Images/qq-airline.ico" />
+    <style>
+        @import url('mainstyle.css');
+    </style>
+    <script src="js/angular.min.js"></script>
+
+    <script>
+        var chuyenDiHinh = localStorage.getItem("item1");
+        var chuyenDiMa = localStorage.getItem("item2");
+        var chuyenDiThoigian = localStorage.getItem("item3");
+        var chuyenDiGia = localStorage.getItem("item4");
+        var chuyenVeHinh = localStorage.getItem("item5");
+        var chuyenVeMa = localStorage.getItem("item6");
+        var chuyenVeThoigian = localStorage.getItem("item7");
+        var chuyenVeGia = localStorage.getItem("item8");
+        var sanbayDi = localStorage.getItem("sanbayDi");
+        var sanbayVe = localStorage.getItem("sanbayVe");
+        var sanbayDi2 = localStorage.getItem("sanbayDi2");
+        var sanbayVe2 = localStorage.getItem("sanbayVe2");
+        var soHanhKhach = localStorage.getItem("soHanhKhach");
+        var nhapNgaydi = localStorage.getItem("nhapNgaydi");
+        var nhapNgayve = localStorage.getItem("nhapNgayve");
+    </script>
+</head>
+<body ng-app="myApp" ng-controller="test" onload="Tong()">
+    <script>
+        //data hành lý
+        angular.module('myApp', [])
+            .controller('test', function ($scope) {
+                {
+                    $scope.items1 = [
+                        {
+                            name: "Chiều đi",
+                        },
+                        {
+                            name: "Mua 15kg - 200000 VNĐ",
+                            weight: 15,
+                            price: 200000,
+
+                        },
+                        {
+                            name: "Mua 20kg - 300000 VNĐ",
+                            weight: 20,
+                            price: 300000,
+
+                        },
+                        {
+                            name: "Mua 25kg - 400000 VNĐ",
+                            weight: 25,
+                            price: 400000,
+
+                        },
+                        {
+                            name: "Mua 30kg - 500000 VNĐ",
+                            weight: 30,
+                            price: 500000,
+                        },
+                    ];
+                    $scope.selectedItem1 = $scope.items1[0];
+                }
+                {
+                    $scope.items2 = [
+                        {
+                            name: "Chiều về",
+                        },
+                        {
+                            name: "Mua 15kg - 200000 VNĐ",
+                            weight: 15,
+                            price: 200000,
+
+                        },
+                        {
+                            name: "Mua 20kg - 300000 VNĐ",
+                            weight: 20,
+                            price: 300000,
+
+                        },
+                        {
+                            name: "Mua 25kg - 400000 VNĐ",
+                            weight: 25,
+                            price: 400000,
+
+                        },
+                        {
+                            name: "Mua 30kg - 500000 VNĐ",
+                            weight: 30,
+                            price: 500000,
+                        },
+                    ];
+                    $scope.selectedItem2 = $scope.items2[0];
+                }
+            })
+    </script>
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="Images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="Images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="KhungHinhMayBay">
+        <div style="float:none; text-align:center;">
+            <!--tiến trình-->
+            <img src="Images/B2.PNG" height="50" />
+        </div>
+        <div id="ThongTinDatVe">
+            <form onload="motChieu()" action="ThanhToan.html" method="get">
+
+                <!--THÔNG TIN CHUYẾN BAY-->
+                <table> 
+                    <thead>
+                        <tr>
+                            <td colspan="5">THÔNG TIN CHUYẾN BAY</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chiều đi:</td>
+                            <td id="sanbayDi"></td>
+                            <td align="left">
+                                <img src="Images/ico-fly-di.png">
+                            </td>
+                            <td id="sanbayDen"></td>
+                            <td id="ngayDi"></td>
+
+                        </tr>
+                        <tr>
+                            <td id="hinhDi">
+                            </td>
+                            <td id="maDi"></td>
+                            <td>&nbsp;</td>
+                            <td id="thoigianDi"></td>
+                            <td id="giaDi"></td>
+                        </tr>
+                        <tr>
+                            <td id="chieuVe"></td>
+                            <td id="sanbayDen2"></td>
+                            <td align="left" id="hinhChieuVe">
+                                <img src="Images/ico-fly-di.png">
+                            </td>
+                            <td id="sanbayDi2"></td>
+                            <td id="ngayVe"></td>
+                        </tr>
+                        <tr>
+                            <td id="hinhVe">
+                            </td>
+                            <td id="maVe"></td>
+                            <td>&nbsp;</td>
+                            <td id="thoigianVe"></td>
+                            <td id="giaVe"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <!--THÔNG TIN ĐẶT VÉ-->
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="3">THÔNG TIN ĐẶT VÉ</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Họ và tên người bay (vd: Nguyen Van A)</td>
+
+                            <td colspan="2">Hành lý ký gửi</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Chọn danh xưng: &nbsp;
+                                <select>
+                                    <option>Chọn danh xưng</option>
+                                    <option>Chị</option>
+                                    <option>Anh</option>
+                                    <option>Ông</option>
+                                    <option>Bà</option>
+                                </select>
+
+                            </td>
+                            <td>
+                                <select onclick="TinhTongALL()" ng-model="selectedItem1" ng-options="item1.name  for item1 in items1">
+                                </select>
+                            </td>
+                            <td>
+                                <select onclick="TinhTongALL()" ng-model="selectedItem2" ng-options="item2.name  for item2 in items2">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i> Hành khách được mang tối đa 7 ký hành lý xách tay</i></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+
+                        </tr>
+                        <tr>
+                            <td>Tên liên hệ <lable style="color:red" title="bắt buộc nhập">(*)</lable></td>
+                            <td>Điện thoại  <lable style="color:red" title="bắt buộc nhập">(*)</lable></td>
+                            <td>Email (không bắt buộc)</td>
+
+                        </tr>
+                        <tr>
+                            <td>  <input name="ten" type="text" required="" placeholder="Nhập tên ở đây ..." style="width:200px;"></td>
+                            <td><input id="phone" name="phone" type="tel" required=""></td>
+                            <td><input name="mail" type="email"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+
+                                <label>Ghi Chú</label>
+                                <br>
+                                <textarea cols="50" rows="5" name="note"></textarea>
+                            </td>
+                            <td id="GiaHanhLyAn" style="display:none">
+                                {{selectedItem1.price + selectedItem2.price}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                <!--THÔNG TIN THANH TOÁN-->
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="3">THÔNG TIN THANH TOÁN</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>Giá vé:</td>
+                            <td id="soHanhKhach"></td>
+                            <td id="giavemb"></td>
+                        </tr>
+                        <tr>
+                            <td>Giá hành lý:</td>
+                            <td id="showhanhly">
+                                Mua {{selectedItem1.weight + selectedItem2.weight}} kg
+                            </td>
+                            <td id="GiaHanhLy"></td>
+                        </tr>
+                        <tr style=" background-color:#B1173C;color:white;">
+                            <td colspan="2">Tổng cộng:</td>
+                            <td id="tongcong"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p align="right">
+                    <button type="submit" onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="lentop"> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="infoframe">
+            <div class="links">
+                <div class="col" style="background-image:url(Images/about-us.png)">
+                    <p class="title">VỀ CHÚNG TÔI</p>
+                    <ul>
+                        <li>
+                            <a href="/GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li>
+                            <a tel="+84334447979" class="tx-link" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="hide-small">
+                            <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                Điều khoản dịch vụ
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tx-link" title="Đóng góp ý kiến">
+                                Đóng góp ý kiến
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url(Images/Instruction.png)">
+                    <p class="title">HƯỚNG DẪN</p>
+                    <ul>
+                        <li>
+                            <a href="/HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                Hướng dẫn đặt vé máy bay
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="/HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                Hướng dẫn bay
+                            </a>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url(Images/Handbook.png)">
+                    <p class="title">CẨM NANG</p>
+                    <ul>
+                        <li>
+                            <a href="file:///C:/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="file:///C:/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="file:///C:/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="thongtin">
+            <div class="wrap">
+                <p class="com-name">Tập đoàn QQ INTERNATIONAL GROUP</p>
+                <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+            </div>
+        </div>
+    </footer>
+    <script>
+       document.getElementById("soHanhKhach").innerText = soHanhKhach +" hành khách" ;
+       document.getElementById("sanbayDi").innerText = sanbayDi;
+       document.getElementById("sanbayDen").innerText = sanbayVe; 
+       document.getElementById("ngayDi").innerText = nhapNgaydi  ;
+      
+        document.getElementById("hinhDi").innerText += chuyenDiHinh;
+        document.getElementById("maDi").innerText += chuyenDiMa
+        document.getElementById("thoigianDi").innerText += chuyenDiThoigian;
+        document.getElementById("giaDi").innerText += chuyenDiGia;
+
+         if (chuyenVeMa == null) {
+           document.getElementById("chieuVe").innerText += " "; 
+           document.getElementById("hinhChieuVe").innerText += " ";
+           document.getElementById("sanbayDen2").innerText += " ";
+           document.getElementById("sanbayDi2").innerText += " ";
+           document.getElementById("hinhVe").innerText += " ";
+           document.getElementById("maVe").innerText += " ";
+           document.getElementById("thoigianVe").innerText += " ";
+           document.getElementById("giaVe").innerText += " ";
+       }
+       else {
+           document.getElementById("chieuVe").innerText += "Chiều về:";
+           document.getElementById("sanbayDi2").innerText = sanbayDi;
+           document.getElementById("sanbayDen2").innerText = sanbayVe;
+           document.getElementById("ngayVe").innerText = nhapNgayve;
+           document.getElementById("hinhVe").innerText += chuyenVeHinh;
+           document.getElementById("maVe").innerText += chuyenVeMa;
+           document.getElementById("thoigianVe").innerText += chuyenVeThoigian;
+           document.getElementById("giaVe").innerText += chuyenVeGia;
+        }
+        if (nhapNgayve == null) {
+            y = document.getElementById("giaDi").childNodes[0].nodeValue;
+            //tách giá vé từ chuỗi ra số nguyên
+            var m = y.split(" ");
+            var n = m[0].split(".");
+            var tien1 = 0;
+            for (i = 0; i < n.length; i++)
+                tien1 += n[i];
+            c = parseInt(tien1);
+        }
+        else {
+             y = document.getElementById("giaDi").childNodes[0].nodeValue;
+            //tách giá vé từ chuỗi ra số nguyên
+            var m = y.split(" ");
+            var n = m[0].split(".");
+            var tien1 = 0;
+            for (i = 0; i < n.length; i++)
+                tien1 += n[i];
+             z = document.getElementById("giaVe").childNodes[0].nodeValue;
+        var l = z.split(" ");
+        var k = l[0].split(".");
+        var tien2 = 0;
+        for (i = 0; i < k.length; i++)
+                tien2 += k[i]; 
+            c = (parseInt(tien1) + parseInt(tien2)) * parseInt(soHanhKhach);
+        }               
+        //tổng giá vé
+        function Tong() {
+            document.getElementById('giavemb').innerText = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
+            document.getElementById('tongcong').innerText = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
+        }
+        //tổng giá vé + giá hàng lý
+        function TinhTongALL() {
+            a = parseInt(document.getElementById('GiaHanhLyAn').childNodes[0].nodeValue);
+            b = parseInt(a) + parseInt(c);
+            document.getElementById('tongcong').innerText = b.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
+            document.getElementById("GiaHanhLy").innerText =
+            document.getElementById("GiaHanhLyAn").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
+        }
+        function HanhLy() {
+        }
+        function TTThanhToan() {
+            var Giavemaybay = document.getElementById("giavemb").innerText;
+            localStorage.setItem("item77", Giavemaybay);
+            var Giahanhly = document.getElementById("GiaHanhLy").innerText;
+            localStorage.setItem("item88", Giahanhly);
+            var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
+            localStorage.setItem("item99", tongtiencanthanhtoan);
+        }
+    </script>
+
+</body>
+</html>

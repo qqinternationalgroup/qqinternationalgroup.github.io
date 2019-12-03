@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Xác nhận đặt vé</title>
+    <link rel="shortcut icon" href="Images/qq-airline.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style type="text/css">
+        @import url(mainstyle.css);
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="KhungHinhMayBay">
+        <div style="float:none; text-align:center">
+            <!--tiến trình-->
+            <img src="Images/B4.PNG" height="50" />
+        </div>
+        <div style="margin-bottom:30px; display:block; float:none">
+            <div id="thongtinchuyenbay">
+                <div class="tieudeXNDV">Thông tin chuyến bay</div>
+                <div class="chuyenbay">
+                    <div style="width:15%">Chiều đi: &nbsp; </div>
+                    <div style="width:30%" id="Sanbaydi1"></div>
+                    <div style="width:7%;">đến</div>
+                    <div style="width:30%" id="Sanbayve1"> </div>
+                    <div style="float:right" id="Ngaybay1"></div>
+                    <br />
+                    <div style="width:15%"><!--img Hãng--></div>
+                    <div style="margin:0px 3%; padding:0px 3%; color:#B1173C" id="Machuyenbaydi"></div>
+                    <div style="margin:0px 3%; padding:0px 3%" id="Thoigianbaydi"></div>
+                    <div class="color" style="float:right; width:35%; text-align:right" id="Giavebaydi"></div>
+
+                    <br />
+                    <hr style="margin: 10px 2px;" />
+                    <div style="width:15%" id="chieuVe"> &nbsp; </div>
+                    <div style="width:30%" id="Sanbaydi2"> </div>
+                    <div style="width:7%;" id="hinhChieuVe"></div>
+                    <div style="width:30%" id="Sanbayve2"> </div>
+                    <div style="float:right" id="Ngaybay2"></div>
+                    <br />
+                    <div style="width:15%"><!--img Hãng--></div>
+                    <div style="margin:0px 3%; padding:0px 3%; color:#B1173C" id="Machuyenbayve"></div>
+                    <div style="margin:0px 3%; padding:0px 3%" id="Thoigianbayve"> <!--Thời gian bay--></div>
+                    <div class="color" style="float:right; width:35%; text-align:right" id="Giavebayve"> </div>
+
+                </div>
+            </div>
+            <div id="thongtinthanhtoan">
+                <div class="tieudeXNDV">Thông tin thanh toán</div>
+                <div class="chuyenbay">
+                    <div style="float:left"><b>Giá vé: </b></div>
+                    <div class="color" style="float:right" id="Tonggiavemaybay"></div>
+                    <br />
+                    <div style="float:left"><b>Giá hành lý: </b></div> 
+                    <div class="color" style="float:right;" id="Giahanhly"></div>
+                    <br />
+                </div>
+                <div id="tonggia">
+                    <b>Tổng giá </b> <i>(đã bao gồm VAT): </i>
+                    <div style="float:right;" name="Nntongcong" id="Nntongcong"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script type="text/javascript">
+            var Giahanhly = localStorage.getItem("item88");
+            var Ntongcong = localStorage.getItem("item99");
+            var Giavemaybay = localStorage.getItem("item77");
+            var Machuyenbayve = localStorage.getItem("item6");
+            var Thoigianbayve = localStorage.getItem("item7");
+            var Giavebayve = localStorage.getItem("item8");
+            var Machuyenbaydi = localStorage.getItem("item2");
+            var Thoigianbaydi = localStorage.getItem("item3");
+            var Giavebaydi = localStorage.getItem("item4");
+            var Sanbaydi1 = localStorage.getItem("sanbayDi");
+            var Sanbayve1 = localStorage.getItem("sanbayVe");
+            var Ngaybay1 = localStorage.getItem("nhapNgaydi");
+            var Sanbaydi2 = localStorage.getItem("sanbayVe");
+            var Sanbayve2 = localStorage.getItem("sanbayDi");
+            var Ngaybay2 = localStorage.getItem("nhapNgayve");
+            document.getElementById("Ngaybay1").innerText += Ngaybay1;
+            document.getElementById("Sanbayve1").innerText += Sanbayve1;
+            document.getElementById("Sanbaydi1").innerText += Sanbaydi1;
+
+            document.getElementById("Giavebaydi").innerText += Giavebaydi;
+            document.getElementById("Thoigianbaydi").innerText += Thoigianbaydi;
+            document.getElementById("Machuyenbaydi").innerText += Machuyenbaydi;
+            if (Machuyenbayve == null) {
+                document.getElementById("chieuVe").innerText += " ";
+                document.getElementById("hinhChieuVe").innerText += " ";
+                document.getElementById("Ngaybay2").innerText += " ";
+                document.getElementById("Sanbayve2").innerText += " ";
+                document.getElementById("Sanbaydi2").innerText += " ";
+                document.getElementById("Giavebayve").innerText += " ";
+                document.getElementById("Thoigianbayve").innerText += " ";
+                document.getElementById("Machuyenbayve").innerText += " ";
+            }
+            else {
+                document.getElementById("chieuVe").innerHTML = "Chiều về:";
+                document.getElementById("hinhChieuVe").innerText += " đến ";
+
+
+                document.getElementById("Ngaybay2").innerText += Ngaybay2;
+                document.getElementById("Sanbayve2").innerText += Sanbayve2;
+                document.getElementById("Sanbaydi2").innerText += " " + Sanbaydi2;
+
+                document.getElementById("Giavebayve").innerText += Giavebayve;
+                document.getElementById("Thoigianbayve").innerText += Thoigianbayve;
+                document.getElementById("Machuyenbayve").innerText += Machuyenbayve;
+
+            }
+
+            document.getElementById("Tonggiavemaybay").innerText = Giavemaybay;
+            document.getElementById("Nntongcong").innerText = Ntongcong;
+            document.getElementById("Giahanhly").innerText = Giahanhly;
+        </script>
+        <footer>
+                <div class="infoframe">
+                    <div class="links">
+                        <div class="col" style="background-image:url('images/about-us.png')">
+                            <p class="title">VỀ CHÚNG TÔI</p>
+                            <ul>
+                                <li>
+                                    <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                        Giới thiệu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                        Liên hệ
+                                    </a>
+                                </li>
+                                <li class="hide-small">
+                                    <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                        Điều khoản dịch vụ
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col" style="background-image:url('images/Instruction.png')">
+                            <p class="title">HƯỚNG DẪN</p>
+                            <ul>
+                                <li>
+                                    <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                        Hướng dẫn đặt vé máy bay
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                        Hướng dẫn bay
+                                    </a>
+                                </li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </div>
+                        <div class="col" style="background-image:url('images/Handbook.png')">
+                            <p class="title">CẨM NANG</p>
+                            <ul>
+                                <li>
+                                    <a href="/" class="tx-link">
+                                        &nbsp;
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="tx-link">
+                                        &nbsp;
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/" class="tx-link">
+                                        &nbsp;
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="thongtin">
+                    <div class="wrap">
+                        <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                        <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                        <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                        <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+                    </div>
+                </div>
+
+            </footer>
+
+</body>
+</html>

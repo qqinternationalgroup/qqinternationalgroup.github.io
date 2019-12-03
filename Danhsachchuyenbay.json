@@ -1,0 +1,102 @@
+﻿[
+  {
+    "MaChuyenBay": [
+      {
+        "Logo": "images/smBL.gif",
+        "Ma": "BL458",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "5:40 - 7:50",
+        "Gia": "515.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVJ.gif",
+        "Ma": "VJ370",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "06:35 - 07:55",
+        "Gia": "833.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVN.gif",
+        "Ma": "VN1460",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "11:20 - 12:50",
+        "Gia": "1.028.832 VNĐ"
+      },
+      {
+        "Logo": "images/smBL.gif",
+        "Ma": "BL193",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "8:40 - 10:50",
+        "Gia": "870.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVJ.gif",
+        "Ma": "VJ378",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "14:05 - 15:25",
+        "Gia": "699.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVN.gif",
+        "Ma": "VN1461",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "15:15 - 16:35",
+        "Gia": "1.053.825 VNĐ"
+      },
+      {
+        "Logo": "images/smBL.gif",
+        "Ma": "BL136",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "10:40 - 12:50",
+        "Gia": "800.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVJ.gif",
+        "Ma": "VJ316",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "16:35 - 17:55",
+        "Gia": "725.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVN.gif",
+        "Ma": "VN1509",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "14:20 - 15:50",
+        "Gia": "1.130.000 VNĐ"
+      },
+      {
+        "Logo": "images/smBL.gif",
+        "Ma": "BL285",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "18:40 - 19:50",
+        "Gia": "630.000 "
+      },
+      {
+        "Logo": "images/smVJ.gif",
+        "Ma": "VJ221",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "13:05 - 14:25",
+        "Gia": "840.000 VNĐ"
+      },
+      {
+        "Logo": "images/smVN.gif",
+        "Ma": "VN3112",
+        "NoiDi": "HAN",
+        "NoiDen": "SGN",
+        "ThoiGianBay": "19:15 - 20:35",
+        "Gia": "1.230.000 VNĐ"
+      }
+    ]
+  }
+]

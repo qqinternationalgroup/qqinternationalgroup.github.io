@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Thanh Toán</title>
+    <meta charset="utf-8" />
+    <title>Thanh Toán</title>
+    <link rel="shortcut icon" href="Images/qq-airline.ico" />
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/btn_top.js"></script>
+    <style>
+        @import url('mainstyle.css');
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="KhungHinhMayBay">
+        <div style="float:none; text-align:center">
+            <!--tiến trình-->
+            <img src="Images/B3.PNG" height="50" />
+        </div>
+        <form class="formThanhToan" name="frm" action="XacNhanDatVe.html" method="get">
+            <table style=" width:100%; background-color: #ffffff;" cellspacing="10" cellpadding="5" border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            <img src="Images/atm.png" /> &nbsp; CHUYỂN KHOẢN NGÂN HÀNG
+                        </th>
+
+                        <th>
+                            <img src="Images/office.png" />  &nbsp; THANH TOÁN TẠI VĂN PHÒNG QQ INTERNATIONAL GROUP
+                        </th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>
+                        <table style=" width:100%;">
+                            <tr>
+                                <th colspan="5">
+                                    Ngân hàng TMCP Ngoại Thương Việt Nam Vietcombank (VNĐ)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td rowspan="5"> <img src="Images/VCB.gif" /></td>
+                                <th colspan="2">Tên tài khoản</th>
+                                <td colspan="2">QQ International Group</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Số tài khoản</th>
+                                <td colspan="2">0011 0035 39780</td>
+
+                            </tr>
+                            <tr>
+                                <th colspan="2">Chi Nhánh</th>
+                                <td colspan="2">Sở Giao Dịch TP.HCM</td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Số tiền</th>
+                                <td colspan="2"><input id="Ntongcong" name="Ntongcong" style="border:none;font-size:16px;" /></td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Nội dung</th>
+                                <td colspan="2">Thanh toan cho dh: 1911248739</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        Sau khi đặt hàng thành công, Quý khách vui lòng qua văn phòng QQ INTERNATIONAL GROUP để thanh toán và nhận vé.
+                        <ul>
+                            <li>
+                                <b>Thời gian giao dịch:</b> Từ 8h sáng tới 20h30 hàng ngày
+                            </li>
+                            <li>
+                                <b>Phí giao dịch:</b> Miễn phí
+                            </li>
+                        </ul>
+                        <hr style="color:#B1173C;" />
+                        <b>VĂN PHÒNG QQ INTERNATIONAL GROUP TẠI TP.HỒ CHÍ MINH</b>
+                        <br />
+                        Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM
+                    </td>
+                </tr>
+
+            </table>
+            <p align="right">
+                <button type="submit" class="nutbutton">Xác nhận đặt vé</button>
+            </p>
+
+        </form>
+    </div>
+        <script type="text/javascript">
+
+            var tongtiencanthanhtoan = localStorage.getItem("item99");
+            document.frm.Ntongcong.value = tongtiencanthanhtoan;
+        </script>
+        <div class="lentop"> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
+        <footer>
+            <div class="infoframe">
+                <div class="links">
+                    <div class="col" style="background-image:url('images/about-us.png')">
+                        <p class="title">VỀ CHÚNG TÔI</p>
+                        <ul>
+                            <li>
+                                <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                    Giới thiệu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                    Liên hệ
+                                </a>
+                            </li>
+                            <li class="hide-small">
+                                <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                    Điều khoản dịch vụ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col" style="background-image:url('images/Instruction.png')">
+                        <p class="title">HƯỚNG DẪN</p>
+                        <ul>
+                            <li>
+                                <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                    Hướng dẫn đặt vé máy bay
+                                </a>
+                            </li>
+                            <li>
+                                <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                    Hướng dẫn bay
+                                </a>
+                            </li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                    <div class="col" style="background-image:url('images/Handbook.png')">
+                        <p class="title">CẨM NANG</p>
+                        <ul>
+                            <li>
+                                <a href="/" class="tx-link">
+                                    &nbsp;
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="tx-link">
+                                    &nbsp;
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="tx-link">
+                                    &nbsp;
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="thongtin">
+                <div class="wrap">
+                    <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                    <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                    <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                    <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+                </div>
+            </div>
+
+        </footer>
+</body>
+</html>

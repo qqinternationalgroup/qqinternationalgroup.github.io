@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Danh sách chuyến bay</title>
+    <link rel="shortcut icon" href="Images/qq-airline.ico" />
+    <style type="text/css">
+        @import url('mainstyle.css');
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/btn_top.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script type="text/javascript">
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var loaiVe = url.searchParams.get("loaiVe");
+        var nhapSanbaydi = url.searchParams.get("nhapSanbaydi");
+        var nhapSanbayden = url.searchParams.get("nhapSanbayden");
+        var layUrlSohanhkhach = url.searchParams.get("soHanhkhach");
+        var ngayDi = url.searchParams.get("ngayDi");
+        var ngayDen = url.searchParams.get("ngayDen");
+        localStorage.setItem("sanbayDi", nhapSanbaydi);
+        localStorage.setItem("sanbayVe", nhapSanbayden);
+        localStorage.setItem("soHanhKhach", layUrlSohanhkhach);
+        localStorage.setItem("nhapNgaydi", ngayDi);
+        localStorage.setItem("nhapNgayve", ngayDen);
+        if (document.getElementById("idNgay-den").disabled == false) {
+            localStorage.setItem("sanbayVe2", nhapSanbaydi);
+            localStorage.setItem("sanbayDi2", nhapSanbayden);
+        }
+    </script>
+</head>
+<body id="homepage" ng-app="QQApp" ng-controller="QQController" onload="disableChieuVe()">
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="KhungHinhMayBay">
+        <div style="float:none; text-align:center">
+            <!--tiến trình-->
+            <img src="Images/B1.PNG" height="50" />
+        </div>
+        <div class="tim_chuyen_bay">
+            <h2> TÌM CHUYẾN BAY</h2>
+            <form class="form" autocomplete="on" name="frm">
+                <div class="loai-ve">
+                    <input type="radio" name="NloaiVe" id="idKhu-hoi" value="Vé khứ hồi" onclick="radKhuHoi()" /> <label class="label">&nbsp;Vé khứ hồi</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="NloaiVe" id="idMot-chieu" value="Vé một chiều" onclick="MotChieu()" /> <label class="label">&nbsp;Vé một chiều</label>
+                </div>
+                <br />
+                <div class="san-bay ">
+                    <label class="label">Sân bay đi</label>
+                    <br />
+                    <input class="input" type="text" placeholder="Sân bay đi" list="idSan-bay-di" name="NnhapSanbaydi" />
+                    <datalist id="idSan-bay-di">
+                        <option value="Hà Nội (HAN)" />
+                        <option value="Hải Phòng (HPH)" />
+                        <option value="Điện Biên (DIN)" />
+                        <option value="Thanh Hóa (THD) " />
+                        <option value="Vinh (VII)" />
+                        <option value="Huế (HUI)" />
+                        <option value="Đồng Hới (VDH)" />
+                        <option value="Đà Nẵng (DAD)" />
+                        <option value="Pleiku (PXU)" />
+                        <option value="Tuy Hòa (TBB)" />
+                        <option value="Hồ Chí Minh (SGN)" />
+                        <option value="Nha Trang (CXR)" />
+                        <option value="Đà Lạt (DLI)" />
+                        <option value="Phú Quốc (PQC)" />
+                        <option value="Tam Kỳ (VCL)" />
+                        <option value="Quy Nhơn (UIH)" />
+                        <option value="Cần Thơ (VCA)" />
+                        <option value="Côn Đảo (VCS)" />
+                        <option value="Ban Mê Thuột (BMV)" />
+                        <option value="Rạch Giá (VKG)" />
+                        <option value="Cà Mau (CAH)" />
+                    </datalist>
+                    <br />
+                    <div>
+                        <label class="label">Sân bay đến</label>
+                        <br />
+                        <input class="input" type="text" placeholder="Sân bay đến" onchange="sosanhdiadiem()" list="idSan-bay-den" name="NnhapSanbayden" />
+                        <datalist id="idSan-bay-den">
+                            <option value="Hà Nội (HAN)" />
+                            <option value="Hải Phòng (HPH)" />
+                            <option value="Điện Biên (DIN)" />
+                            <option value="Thanh Hóa (THD) " />
+                            <option value="Vinh (VII)" />
+                            <option value="Huế (HUI)" />
+                            <option value="Đồng Hới (VDH)" />
+                            <option value="Đà Nẵng (DAD)" />
+                            <option value="Pleiku (PXU)" />
+                            <option value="Tuy Hòa (TBB)" />
+                            <option value="Hồ Chí Minh (SGN)" />
+                            <option value="Nha Trang (CXR)" />
+                            <option value="Đà Lạt (DLI)" />
+                            <option value="Phú Quốc (PQC)" />
+                            <option value="Tam Kỳ (VCL)" />
+                            <option value="Quy Nhơn (UIH)" />
+                            <option value="Cần Thơ (VCA)" />
+                            <option value="Côn Đảo (VCS)" />
+                            <option value="Ban Mê Thuột (BMV)" />
+                            <option value="Rạch Giá (VKG)" />
+                            <option value="Cà Mau (CAH)" />
+                        </datalist>
+                    </div>
+                </div>
+                <br />
+                <div class="ngay-di-den">
+                    <div>
+                        <label class="label">Ngày đi:</label>
+                        <input type="date" class="input" style="width:180px" id="idNgay-di" name="NngayDi" />
+                    </div>
+                    <div>
+                        <label class="label"> Ngày đến:</label>
+                        <input type="date" class="input" id="idNgay-den" onchange=" sosanhngay()" style="width:180px" name="NngayDen" />
+                    </div>
+                </div>
+                <br />
+                <div class="so-nguoi">
+                    <div>
+                        <label class="label">Số hành khách</label>
+                        <br />
+                        <input class="input" style="width:100px" id="idSo-hanh-khach" name="NsoHanhkhach" list="lstSohanhkhach" />
+                        <datalist id="lstSohanhkhach">
+                            <option value="1" />
+                            <option value="2" />
+                            <option value="3" />
+                            <option value="4" />
+                            <option value="5" />
+                            <option value="6" />
+                            <option value="7" />
+                            <option value="8" />
+                            <option value="9" />
+                            <option value="10" />
+                        </datalist>
+                    </div>
+                </div>
+                <br />
+                <div class="btn">
+                    <input type="button" value="TÌM VÉ" class="tim" id="tim" onclick="timVe()" />
+                    <input type="reset" value="XÓA" class="tim" id="xoa" onclick="xoa()" />
+
+                </div>
+
+            </form>
+
+        </div>
+        <div id="CacBangDanhSach">
+            <div class="divbangds">
+                <table border="0" align="center" cellpadding="0" cellspacing="0" style="width:100%; text-align:center;line-height:35px;">
+                    <tr>
+                        <td colspan="5" height="40px" style="background-color:#B1173C; color:#FFF3D2; vertical-align:middle;text-align:left;">
+                            <input style="border:none; background-color:#B1173C;color:#FFF3D2;width:90%; height:100%; font-family: 'Ubuntu', sans-serif" ;
+                                   id="idChieuDi" name="NChieuDi" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hãng</td>
+                        <td>Mã chuyến bay</td>
+                        <td>Thời gian bay</td>
+                        <td>Giá</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr0">
+                        <td><img src="{{cb.MaChuyenBay[0].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[0].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[0].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[0].Gia}}</td>
+                        <td><input type="button" class="btnChon" id="idChon0" value="Chọn" onclick="javascript:xuLychonDi(tr0); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr1">
+                        <td><img src="{{cb.MaChuyenBay[1].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[1].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[1].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[1].Gia}}</td>
+                        <td><input type="button" id="idChon1" value="Chọn" onclick="javascript:xuLychonDi(tr1); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr2">
+                        <td><img src=" {{cb.MaChuyenBay[2].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[2].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[2].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[2].Gia}}</td>
+                        <td><input type="button" id="idChon2" value="Chọn" onclick="javascript:xuLychonDi(tr2); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr3">
+                        <td><img src=" {{cb.MaChuyenBay[3].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[3].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[3].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[3].Gia}}</td>
+                        <td><input type="button" id="idChon3" value="Chọn" onclick="javascript:xuLychonDi(tr3); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr4">
+                        <td><img src=" {{cb.MaChuyenBay[4].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[4].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[4].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[4].Gia}}</td>
+                        <td><input type="button" id="idChon4" value="Chọn" onclick="javascript:xuLychonDi(tr4); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr5">
+                        <td><img src=" {{cb.MaChuyenBay[5].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[5].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[5].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[5].Gia}}</td>
+                        <td><input type="button" id="idChon5" value="Chọn" onclick="javascript:xuLychonDi(tr5); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="divbangds">
+                <table id="d" border="0" align="center" cellpadding="0" cellspacing="0" style="width:100%; text-align:center;line-height:35px;">
+                    <tr>
+                        <td colspan="5" height="40px" style="background-color:#B1173C; color:#FFF3D2; vertical-align:middle;text-align:left;">
+                            <input style="border:none; background-color:#B1173C;color:#FFF3D2;width:90%; height:100%; font-family: 'Ubuntu', sans-serif"
+                                   id="idChieuDen" name="NChieuDen" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hãng</td>
+                        <td>Mã chuyến bay</td>
+                        <td>Thời gian bay</td>
+                        <td>Giá</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr6">
+                        <td><img src=" {{cb.MaChuyenBay[6].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[6].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[6].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[6].Gia}}</td>
+                        <td><input type="button" id="idChon6" value="Chọn" onclick="javascript:xuLychonVe(tr6); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr7">
+                        <td><img src=" {{cb.MaChuyenBay[7].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[7].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[7].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[7].Gia}}</td>
+                        <td><input type="button" id="idChon7" value="Chọn" onclick="javascript:xuLychonVe(tr7); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr8">
+                        <td><img src=" {{cb.MaChuyenBay[8].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[8].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[8].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[8].Gia}}</td>
+                        <td><input type="button" id="idChon8" value="Chọn" onclick="javascript:xuLychonVe(tr8); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr9">
+                        <td><img src=" {{cb.MaChuyenBay[9].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[9].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[9].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[9].Gia}}</td>
+                        <td><input type="button" id="idChon9" value="Chọn" onclick="javascript:xuLychonVe(tr9); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr10">
+                        <td><img src=" {{cb.MaChuyenBay[10].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[10].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[10].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[10].Gia}}</td>
+                        <td><input type="button" id="idChon10" value="Chọn" onclick="javascript:xuLychonVe(tr10); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                    <tr ng-repeat="cb in chuyenbay" id="tr11">
+                        <td><img src=" {{cb.MaChuyenBay[11].Logo}}" /></td>
+                        <td>{{cb.MaChuyenBay[11].Ma}}</td>
+                        <td>{{cb.MaChuyenBay[11].ThoiGianBay}}</td>
+                        <td>{{cb.MaChuyenBay[11].Gia}}</td>
+                        <td><input type="button" id="idChon11" class="Chon11" value="Chọn" onclick="javascript:xuLychonVe(tr11); this.style.backgroundColor = 'yellow'; this.style.color='black'" /></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div id="divdatve" class="cangiua">
+                <input type="button" class="nutbutton" value="ĐẶT VÉ" onclick="DatVe()" />
+            </div>
+        </div>
+        <script>
+
+            var app = angular.module("QQApp", [])
+            app.controller("QQController", function ($scope, $http) {
+                $http({
+                    method: "GET",
+                    url: "Danhsachchuyenbay.json"
+                }).then(function mySucces(respone) {
+                    $scope.chuyenbay = respone.data
+                }, function myError(respone) {
+                    $scope.dataError = respone.statusText
+                }
+                )
+            })
+        </script>
+        <script>
+            function timVe() {
+                var sanbayDi = document.frm.NnhapSanbaydi.value;
+                var sanbayVe = document.frm.NnhapSanbayden.value;
+                var soHanhKhach = document.frm.NsoHanhkhach.value;
+                var nhapNgaydi = document.frm.NngayDi.value;
+                var nhapNgayve = document.frm.NngayDen.value;
+                localStorage.setItem("sanbayDi", sanbayDi);
+                localStorage.setItem("sanbayVe", sanbayVe);
+                localStorage.setItem("soHanhKhach", soHanhKhach);
+                localStorage.setItem("nhapNgaydi", nhapNgaydi);
+                localStorage.setItem("nhapNgayve", nhapNgayve);
+                localStorage.setItem("nhapNgayve2", nhapNgayve);
+                if (document.getElementById("idNgay-den").disabled == false) {
+                    localStorage.setItem("sanbayVe2", sanbayDi);
+                    localStorage.setItem("sanbayDi2", sanbayVe);
+                }
+            }
+            function xuLychonDi(tr) {
+                hinh1 = tr.cells[0].innerText;
+                ma1 = tr.cells[1].innerText;
+                thoigian1 = tr.cells[2].innerText;;
+
+                gia1 = tr.cells[3].innerText;
+                var strHinh = hinh1;
+                var strMa = ma1;
+                var strThoiGian = thoigian1;
+                var strGia = gia1
+                localStorage.setItem("item1", strHinh);
+                localStorage.setItem("item2", strMa);
+                localStorage.setItem("item3", strThoiGian);
+                localStorage.setItem("item4", strGia);
+                if (document.getElementById("idNgay-den").disabled == true) {
+                    localStorage.removeItem("item5");
+                    localStorage.removeItem("item6");
+                    localStorage.removeItem("item7");
+                    localStorage.removeItem("item8");
+                }
+            }
+            function xuLychonVe(tr) {
+                if (document.getElementById("idNgay-den").disabled != true) {
+                    hinh2 = tr.cells[0].innerText;
+                    ma2 = tr.cells[1].innerText;
+                    thoigian2 = tr.cells[2].innerText;
+
+                    gia2 = tr.cells[3].innerText;
+                    var strHinh2 = hinh2;
+                    var strMa2 = ma2;
+                    var strThoiGian2 = thoigian2;
+                    var strGia2 = gia2
+
+                    localStorage.setItem("item5", strHinh2);
+                    localStorage.setItem("item6", strMa2);
+                    localStorage.setItem("item7", strThoiGian2);
+                    localStorage.setItem("item8", strGia2);
+                }
+                else {
+                    localStorage.removeItem("item5");
+                    localStorage.removeItem("item6");
+                    localStorage.removeItem("item7");
+                    localStorage.removeItem("item8");
+                }
+
+            }
+            function DatVe() {
+                location.href = "ThongTinDatVe.html";
+
+            }
+
+            function DatVe() {
+                location.href = "ThongTinDatVe.html";
+            }
+            function MotChieu() {
+                document.getElementById("idNgay-den").value = "";
+                document.getElementById("idNgay-den").disabled = true;
+
+            }
+            function radKhuHoi() {
+                document.getElementById("idNgay-den").disabled = false;
+            }
+            function xoa() {
+                document.getElementById("xoa").reset();
+            }
+            function tim() { document.getElementById("tim").reset() }
+            document.frm.NloaiVe.value = loaiVe;
+            document.frm.NnhapSanbaydi.value = nhapSanbaydi;
+            document.frm.NnhapSanbayden.value = nhapSanbayden;
+            document.frm.NsoHanhkhach.value = layUrlSohanhkhach;
+            document.frm.NngayDi.value = ngayDi;
+            document.frm.NngayDen.value = ngayDen;
+            function layInput() {
+                document.getElementById("idChieuDi").value = "";
+                document.getElementById("idChieuDen").value = "";
+                var layNgaydi = document.frm.NngayDi.value;
+                var layNgayden = document.frm.NngayDen.value;
+                var laySanbayden = document.frm.NnhapSanbayden.value;
+                var laySanbaydi = document.frm.NnhapSanbaydi.value;
+                var layChieudi = "Chiều đi: " + laySanbaydi + " đến " + laySanbayden + " - " + layNgaydi;
+                document.getElementById("idChieuDi").value += layChieudi;
+                var layChieuden = "Chiều về: " + laySanbayden + " đến " + laySanbaydi + " - " + layNgayden;
+                document.getElementById("idChieuDen").value += layChieuden;
+            }
+            function disableChieuVe() {
+                if (document.getElementById("idMot-chieu").checked) {
+                    var list = document.getElementById("d");
+                    while (list.hasChildNodes()) {
+                        list.removeChild(list.firstChild);
+                    }
+                }
+
+            }
+            function sosanhdiadiem() {
+                var nhapSanbaydi = document.getElementById("fromairport").value;
+                var nhapSanbayden = document.getElementById("nhapSanbayden").value;
+                if (nhapSanbaydi === nhapSanbayden) {
+                    alert("Nhập sân bay đến khác sân bay đi!")
+                    document.getElementById("nhapSanbayden").value = ' ';
+                }
+            }
+            function sosanhngay() {
+                var ngayDi = document.getElementById("ngayDi").value;
+                var ngayDen = document.getElementById("ngayDen").value;
+                if (ngayDi > ngayDen) {
+                    alert("Hãy nhập ngày về trước ngày đi!");
+                    document.getElementById("ngayDen").focus();
+                    document.getElementById("ngayDen").value = ' ';
+                }
+            }
+            var x = document.getElementById("tim");
+            x.addEventListener("click", layInput);
+            x.addEventListener("click", disableChieuVe);
+
+            var layChieudi = "Chiều đi: " + nhapSanbaydi + " đến " + nhapSanbayden + " - " + ngayDi;
+            document.getElementById("idChieuDi").value += layChieudi;
+            var layChieuden = "Chiều về: " + nhapSanbayden + " đến " + nhapSanbaydi + " - " + ngayDen;
+            document.getElementById("idChieuDen").value += layChieuden;
+        </script>
+
+
+
+    </div>
+    <div class="lentop"> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
+    <footer>
+        <div class="infoframe">
+            <div class="links">
+                <div class="col" style="background-image:url('images/about-us.png')">
+                    <p class="title">VỀ CHÚNG TÔI</p>
+                    <ul>
+                        <li>
+                            <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="hide-small">
+                            <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                Điều khoản dịch vụ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Instruction.png')">
+                    <p class="title">HƯỚNG DẪN</p>
+                    <ul>
+                        <li>
+                            <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                Hướng dẫn đặt vé máy bay
+                            </a>
+                        </li>
+                        <li>
+                            <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                Hướng dẫn bay
+                            </a>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Handbook.png')">
+                    <p class="title">CẨM NANG</p>
+                    <ul>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="thongtin">
+            <div class="wrap">
+                <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>

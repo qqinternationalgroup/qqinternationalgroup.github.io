@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Hướng dẫn bay</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/btn_top.js"></script>
+    <link href="mainstyle.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            console.log("document ready!");
+
+            var $sticky = $('.sticky');
+            var $stickyrStopper = $('.sticky-stopper');
+            if (!!$sticky.offset()) { // make sure ".sticky" element exists
+
+                var generalSidebarHeight = $sticky.innerHeight();
+                var stickyTop = $sticky.offset().top;
+                var stickOffset = 0;
+                var stickyStopperPosition = $stickyrStopper.offset().top;
+                var stopPoint = stickyStopperPosition - generalSidebarHeight - stickOffset;
+                var diff = stopPoint + stickOffset;
+
+                $(window).scroll(function () { // scroll event
+                    var windowTop = $(window).scrollTop(); // returns number
+
+                    if (stopPoint < windowTop) {
+                        $sticky.css({ position: 'absolute', top: diff });
+                    } else if (stickyTop < windowTop + stickOffset) {
+                        $sticky.css({ position: 'fixed', top: stickOffset });
+                    } else {
+                        $sticky.css({ position: 'absolute', top: 'initial' });
+                    }
+                });
+
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="HuongDanBay">
+        <h1 class="tentrang">Hướng dẫn bay</h1>
+        <div class="sticky">
+            <div >MỤC LỤC</div>
+            <ol type="1" style="width:210px;">
+                <li><a href="#giayto">Những giấy tờ cần thiết</a></li>
+                <li><a href="#xachtay">Hành lý xách tay</a></li>
+                <li><a href="#kygui">Hàng lý ký gửi</a></li>
+                <li><a href="#cam">Những vật dụng cấm mang theo trong hành lý ký gửi</a></li>
+                <li><a href="#thutuc">Các bước làm thủ tục tại sân bay </a></li>
+                <li><a href="#luuy">Những lưu ý trong suốt quá trình bay</a></li>
+            </ol>
+        </div>
+        <div style="font-weight:400;float: right; margin-right:5%; width: 68%">
+            <div>
+                <h2 id="giayto" >1. Những giấy tờ cần thiết</h2>
+                Khi làm thủ tục tại quầy check-in để lên máy bay, bạn cần có: vé máy bay (code vé), chứng minh thư nhân dân hoặc hộ chiếu (nếu bay chuyến quốc tế).
+                Nếu bạn không có chứng minh thư nhân dân thì có thể thay thế bằng những loại giấy tờ sau:
+                <ol>
+                    <li>Chứng minh của các lực lượng vũ trang</li>
+                    <li>Thẻ Đại biểu Quốc hội</li>
+                    <li>Thẻ Đảng viên</li>
+                    <li>Thẻ Nhà báo</li>
+                    <li>Giấy phép lái xe</li>
+                    <li>Thẻ Kiểm soát an ninh hàng không</li>
+                    <li>Thẻ nhận dạng của các Hãng hàng không Việt Nam</li>
+                    <li>Giấy chứng nhận nhân thân có xác nhận của Công an phường, xã nơi cư trú</li>
+                </ol>
+                <p align="center">
+                    <img src="images/giay-to-can-thiet.jpg" />
+                </p>
+            </div>
+
+            <div>
+                <h2 id="xachtay" >2. Tiêu chuẩn về hành lý xách tay</h2>
+                <p>
+                    <b>Vietnam Airlines</b>
+                    <br />Đối với hành khách đi hạng Thương gia, hành khách được phép mang 02 kiện hành lý xách tay,
+                    hành khách ghế hạng Phổ thông được phép mang 01 kiện hành lý xách tay. Mỗi kiện hành lý xách tay có trọng lượng không vượt quá 7 kg
+                    và có tổng kích thước ba chiều không vượt quá 115cm (56 x 36 x 23 cm).
+                </p>
+                <p>
+                    <b>Vietjet Air</b>
+                    <br />Mỗi hành khách (ngoại trừ em bé) được phép mang 01 kiện hành lý xách tay chính và 01 kiện hành lý xách tay nhỏ với tổng trọng lượng tối đa không vượt quá 07kg
+                </p>
+                <p>
+                    <b>Jetstar</b>
+                    <br />Hành lý xách tay (hoặc hành lý trên khoang Thương gia) phải vừa với ngăn để đồ phía trên đầu và mỗi món đồ
+                    không được lớn hơn 56cm (cao) x 36cm (rộng) x 23cm (sâu).
+
+                    <br />Kiện nhỏ phải vừa với khoảng trống dưới ghế phía trước
+                    <br />Tổng trọng lượng là 7kg
+                <p align="center">
+                    <img src="images/hanh-ly-xach-tay-di-may-bay.jpg" />
+                </p>
+            </div>
+            <div>
+                <h2 id="kygui" >3. Hành lý ký gửi</h2>
+                Quy định về hành lý ký gửi của các hãng hàng không nội địa như sau:
+
+                <br /><b>Vietnam Airlines:</b>
+
+                <br /> <i>Hành lý ký gửi được miễn cước:</i>
+
+                <br /> Mỗi hành trình bay, hãng Vietnam Airlines có những quy chế khác nhau về mức hành lý ký gửi miễn cước. Cụ thể như sau:
+                <br /> + Hành trình giữa Việt Nam và Nhật Bản
+                <br /> + Hành trình giữa Việt Nam và Châu Mỹ
+
+                <br /><i>Lưu ý:</i>
+                <br /> + Đối với trẻ nhỏ dưới 2 tuổi, Vietnam Airlines có quy chế riêng về hành lý như sau:
+                <br />Các chuyến bay đến châu Mỹ: Được phép mang 1 kiện hành lý có trọng lượng không vượt quá 23 kg.
+                <br />Các lộ trình khác: được phép mang 10kg hành lý và một xe đẩy có thể gập lại được.
+                <br /> + Hành lý miễn cước cho khách thuyền viên tối đa là 40kg.
+                <br /><i>Hành lý ký gửi có tính cước:</i>
+                <br />Nhằm tạo điều kiện cho khách hàng có được quy trình làm thủ tục đơn giản thuận tiện, hãng Vietnam Airlines chấp nhận cho hành khách mua trước hành lý.
+                Với các lộ trình trong nước, hành khách có thể mua từ 80.000 đến 150.000 đồng cho gói hành lý 5 kg.
+                Còn với các lộ trình quốc tế, cước phí cho hành lý trả trước có giá từ 10 USD – 40 USD/1 gói 5 kg.
+                <p align="center">
+                    <img src="images/hanh-ly-ky-gui.jpg" />
+                </p>
+                <p><b>VietJet Air </b></p>
+                <p>
+                    Quý khách đi chuyến bay của Vietjet Air nếu có nhiều hành lý ký gửi mang theo nên đặt mua theo các gói kèm theo vé của hãng hàng không Vietjet Air
+                    tại các phòng vé Vietjet Air, đại lý vé máy bay Vietjet Air hay trung tâm dịch vụ của Vietjet Air.
+                    <br /> - Trọng lượng không quá 32kg
+                    <br /> - Kích thước không quá : 119cm x 119cm x 81cm
+                    <br /> - Hành lý ký gửi Vietjet Air không kèm theo vé máy bay ngoại trừ 7 kg hành lý xách tay vủa Vietjet Air quy định. vì vậy quý khách muốn mang thêm hành lý,
+                    đề nghị quý khách mua hành lý trả trước.
+                </p>
+                <p>
+                    <b>Jetstar</b>
+                </p>
+                <p>
+                    Giá vé Economy Starter chưa bao gồm dịch vụ hành lý ký gửi. Hành khách sẽ phải trả thêm phí ngoài giá vé nếu phát sinh nhu cầu mang theo hành lý ký gửi.
+
+                <p align="center">
+                    <img src="Images/Jestar_BangGia01.jpg" />
+                </p>
+
+            </div>
+            <div>
+                <h2 id="cam" >4. Những vật dụng không được mang theo trong hành lý ký gửi</h2>
+                <p>
+                    Các vật phẩm không được chấp nhận dưới dạng hành lý ký gửi hoặc vận chuyển trong hành lý:
+                    Chúng tôi có quyền từ chối vận chuyển hành lý hoặc vật phẩm trong hành lý như sau:
+                </p>
+                <ol type="a">
+                    <li>
+                        Các vật phẩm không được đóng gói đúng quy cách trong va ly hoặc các vật chứa thích hợp khác để đảm bảo có thể vận chuyển an toàn
+                        với sự chăm sóc và xử lý thông thường;
+                    </li>
+                    <li>
+                        Các vật phẩm có thể gây nguy hại cho tàu bay hoặc người hoặc tài sản trên tàu bay.
+                    </li>
+                    <li>
+                        Các vật phẩm bị cấm theo quy định của luật áp dụng, quy định hoặc lệnh của bất kỳ bang hay quốc gia nào nơi bay đến, bay đi và bay qua.
+                    </li>
+                    <li>
+                        Các vật phẩm theo nhận định của chúng tôi là không thích hợp cho việc vận chuyển do trọng lượng, hình dáng, kích thước hoặc tính chất của chúng;
+                    </li>
+                    <li>
+                        Các vật phẩm dễ vỡ hoặc dễ hỏng;
+                    </li>
+                    <li>
+                        Động vật sống hoặc chết;
+                    </li>
+                    <li>
+                        Hài cốt hoặc động vật;
+                    </li>
+                    <li>
+                        Hải sản tươi sống hoặc đông lạnh hoặc các loại thịt.
+                    </li>
+                    <li>Súng và đạn dược;</li>
+                    <li>
+                        Chất nổ, khí gas dễ cháy hoặc không cháy, khí làm lạnh, chất lỏng dễ cháy; chất rắn dễ cháy; hợp chất oxy hữu cơ; chất độc, chất lây nhiễm; chất phóng xạ...
+                    </li>
+                    <li>
+                        Vũ khí như súng, kiếm, dao cổ và các vật phẩm tương tự.
+                    </li>
+
+                </ol>
+                <p align="center">
+                    <img src="images/vat-dung-hanh-ly-ky-gui.jpeg" />
+                </p>
+
+            </div>
+            <div>
+                <h2 id="thutuc" >5. Các bước làm thủ tục tại sân bay</h2>
+                <p>
+                    - Bạn cần đến sân bay ít nhất 60 phút trước giờ khởi hành đối với chuyến bay nội địa và 120 phút trước giờ khởi hành đối với chuyến bay quốc tế.
+                    Riêng với các chuyến bay Tết Hành khách phải có mặt tại sân bay 03 giờ trước giờ khởi hành.
+                    <br />- Khi tới sân bay, bạn phải đi qua trạm kiểm soát đồ, scan hành lý ký gửi.
+                    <br />- Bạn cần tìm đến quầy làm thủ tục (check-in) của hãng hàng không mà mình sẽ bay, nhân viên của hãng hàng không sẽ kiểm tra vé máy bay, giấy tờ tuỳ thân của bạn.
+
+                    <br />- Sau khi xong thủ tục, bạn sẽ nhận lại vé máy bay, giấy tờ đưa lúc trước, thẻ lên máy bay – Boarding Pass, và cuống vé tương ứng với hành lý gửi.
+                    Từ lúc này đến lúc lên máy bay, bạn sẽ dùng Boarding Pass thay thế cho vé máy bay.
+                    <br />- Để đảm bảo thực hiện chuyến bay đúng giờ, bạn phải đến cửa ra máy bay ít nhất 30 phút trước giờ cất cánh.
+
+                </p>
+                <p align="center">
+                    <img src="images/thu-tuc-san-bay.jpg" />
+                </p>
+
+            </div>
+            <div>
+                <h2 id="luuy" >6. Những lưu ý đảm bảo an toàn trong suốt quá trình bay</h2>
+                Trong quá trình tham gia chuyến bay, bạn cần chú ý những quy định như sau:
+                <ul>
+                    <li>
+                        Cấm hút thuốc trong suốt chuyến bay.
+                    </li>
+                    <li>
+                        Chỗ ngồi
+                        <br />Số ghế của Quý khách được in trên thẻ lên máy bay. Quý khách lưu ý ngồi đúng ghế của mình.
+
+                    </li>
+                    <li>
+                        Hành lý xách tay
+                        <br />Để hành lý xách tay xuống dưới ghế phía trước hoặc trong ngăn đựng hành lý phía trên.
+                        Cẩn thận khi mở ngăn đựng hành lý để tránh làm rơi các đồ vật bên trong gây nguy hiểm.
+
+                    </li>
+                    <li>
+                        Sử dụng thiết bị điện tử
+                        <br />Không sử dụng điện thoại di động, máy nhắn tin và các loại thiết bị thu phát tín hiệu vì có thể gây nhiễu sóng thiết bị dẫn đường của máy bay.
+                    </li>
+                    <li>
+                        Cất cánh, hạ cánh
+                        <br />Trước lúc máy bay cất cánh và hạ cánh, dựng thẳng lưng ghế; gấp bàn ăn, gác chân; đóng cất màn hình và các vật dụng cá nhân.
+
+                    </li>
+                    <li>
+                        Cách sử dụng dây an toàn
+                        <br />
+                        Vui lòng cài dây an toàn khi đèn hiệu sáng. Dây an toàn được cài bằng cách ấn mạnh hai đầu dây vào nhau.
+                        <br />Kéo mạnh một đầu dây để thắt chặt. Kéo ngược đầu khóa để nới lỏng. Tháo dây bằng cách nhấc nắp đầu khóa.
+                    </li>
+                    <li>
+                        Sử dụng mặt nạ dưỡng khí
+                        <br />Khi áp suất trong máy bay bị giảm, mặt nạ dưỡng khí sẽ tự động rơi xuống từ trần khoang khách và trong phòng vệ sinh.
+                    </li>
+                    <li>
+                        Bảng hiệu lối thoát hiểm và cửa thoát hiểm khẩn cấp
+                        <br />Trên trần tại mỗi khu vực có cửa thoát hiểm và tại mỗi cửa thoát hiểm đều có các đèn bảng hiệu lối thoát hiểm.
+                        <br />Khi thoát hiểm khẩn cấp, Quý khách phải cởi bỏ giày cao gót, không mang theo hành lý và di chuyển càng nhanh càng tốt tới cửa thoát hiểm gần nhất.
+                        Nhảy trượt thoát hiểm và di chuyển thật nhanh ra xa khu vực cầu trượt.
+
+                    </li>
+                </ul>
+                <p align="center">
+                    <img src="images/luu-y-khi-di-may-bay.jpg" />
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="sticky-stopper" style="clear:both"></div>
+    <div class="lentop"> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
+
+    <footer>
+        <div class="infoframe">
+            <div class="links">
+                <div class="col" style="background-image:url('images/about-us.png')">
+                    <p class="title">VỀ CHÚNG TÔI</p>
+                    <ul>
+                        <li>
+                            <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="hide-small">
+                            <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                Điều khoản dịch vụ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Instruction.png')">
+                    <p class="title">HƯỚNG DẪN</p>
+                    <ul>
+                        <li>
+                            <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                Hướng dẫn đặt vé máy bay
+                            </a>
+                        </li>
+                        <li>
+                            <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                Hướng dẫn bay
+                            </a>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Handbook.png')">
+                    <p class="title">CẨM NANG</p>
+                    <ul>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="thongtin">
+            <div class="wrap">
+                <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>

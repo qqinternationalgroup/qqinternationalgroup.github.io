@@ -384,8 +384,11 @@
                 location.href = "ThongTinDatVe.html";
             }
             function MotChieu() {
-                document.getElementById("idNgay-den").value = "";
+                if(document.getElementById("idMot-chieu").checked){
+                                    
                 document.getElementById("idNgay-den").disabled = true;
+                }
+
 
             }
             function radKhuHoi() {

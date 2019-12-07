@@ -402,7 +402,7 @@ footer {
     }
                                                                       /*TRANG HOMEPAGE*/
 .form {
-    line-height: 20px
+    line-height: 18px
 }
 
     .form .label {
@@ -436,7 +436,7 @@ footer {
     border-radius: 5px;
     position: relative;
     float: left;
-    width: 45%;
+    width: 37%;
     margin: 30px 30px 30px 60px;
     border: 2px;
     box-sizing: border-box

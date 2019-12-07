@@ -27,6 +27,18 @@
         var soHanhKhach = localStorage.getItem("soHanhKhach");
         var nhapNgaydi = localStorage.getItem("nhapNgaydi");
         var nhapNgayve = localStorage.getItem("nhapNgayve");
+         
+        function CheckDieuKien() {
+            var ten = document.getElementById("Ten").value
+            var email = document.getElementById("Email").value
+            if (ten == " " || ten == "" || email == " " || email == "") {
+                return true;
+            }
+           if (CheckDieuKien() == true) {
+                alert("Không để trống thông tin (*) bạn nhé!")
+            }
+
+    
     </script>
 </head>
 <body ng-app="myApp" ng-controller="test" onload="Tong()">

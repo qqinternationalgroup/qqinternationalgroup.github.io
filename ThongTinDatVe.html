@@ -284,7 +284,7 @@
                     </tbody>
                 </table>
                 <p align="right">
-                    <button id="btnThanhtoan" onclick ="ThanhToan()"  class="nutbutton">Tiếp tục thanh toán</button>
+                    <button id="btnThanhtoan" onclick ="TTThanhToan()"  class="nutbutton">Tiếp tục thanh toán</button>
                 </p>
             </form>
         </div>
@@ -455,12 +455,7 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
-
-        }
-        function DatVe() {
-            location.href = "ThanhToan.html";
-        }
-        function ThanhToan()  {
+            
              var u = document.getElementById("name").value;
              var p = document.getElementById("phone").value;
 
@@ -471,13 +466,12 @@
              if(p == "") {
                  alert("Please enter your phone");
                  return false;
-             }
 
-             alert("yes, ok")
-
-             return true;
-         }
-               
+        }
+        function DatVe() {
+            location.href = "ThanhToan.html";
+        }
+        
         var x = document.getElementById("btnThanhtoan");
         x.addEventListener("click", TTThanhToan);
         x.addEventListener("click", DatVe);

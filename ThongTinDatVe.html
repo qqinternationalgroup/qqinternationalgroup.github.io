@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,6 +8,7 @@
     <title>Thông tin đặt vé</title>
     <link rel="shortcut icon" href="images/qq-airline.ico" />
     <style>
+
         @import url('mainstyle.css');
     </style>
     <script src="js/angular.min.js"></script>
@@ -27,7 +29,7 @@
         var soHanhKhach = localStorage.getItem("soHanhKhach");
         var nhapNgaydi = localStorage.getItem("nhapNgaydi");
         var nhapNgayve = localStorage.getItem("nhapNgayve");
-      
+
     </script>
 </head>
 <body ng-app="myApp" ng-controller="test" onload="Tong()">
@@ -138,7 +140,7 @@
             <form onload="motChieu()" action="XacNhanDatVe.html" method="get">
 
                 <!--THÔNG TIN CHUYẾN BAY-->
-                <table> 
+                <table>
                     <thead>
                         <tr>
                             <td colspan="5">THÔNG TIN CHUYẾN BAY</td>
@@ -269,7 +271,7 @@
                             <td id="showhanhly">
                                 Mua {{selectedItem1.weight + selectedItem2.weight}} kg
                             </td>
-                            <td >
+                            <td>
                                 <div id="GiaHanhLyAn" style="display:none"> {{selectedItem1.price + selectedItem2.price}}</div>
                                 <div id="GiaHanhLy"></div>
                             </td>
@@ -281,12 +283,12 @@
                     </tbody>
                 </table>
                 <p align="right">
-                    <button id="btnThanhtoan" onclick ="TTThanhToan()"  class="nutbutton">Tiếp tục thanh toán</button>
+                    <button id="btnThanhtoan" onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
                 </p>
             </form>
         </div>
     </div>
-    
+
 
     <div class="lentop"> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
 
@@ -372,38 +374,38 @@
         </div>
     </footer>
     <script>
-       document.getElementById("soHanhKhach").innerText = soHanhKhach +" hành khách" ;
-       document.getElementById("sanbayDi").innerText = sanbayDi;
-       document.getElementById("sanbayDen").innerText = sanbayVe; 
-       document.getElementById("ngayDi").innerText = nhapNgaydi  ;
-      
+        document.getElementById("soHanhKhach").innerText = soHanhKhach + " hành khách";
+        document.getElementById("sanbayDi").innerText = sanbayDi;
+        document.getElementById("sanbayDen").innerText = sanbayVe;
+        document.getElementById("ngayDi").innerText = nhapNgaydi;
+
         document.getElementById("hinhDi").innerText += chuyenDiHinh;
         document.getElementById("maDi").innerText += chuyenDiMa
         document.getElementById("thoigianDi").innerText += chuyenDiThoigian;
         document.getElementById("giaDi").innerText += chuyenDiGia;
 
-         if (chuyenVeMa == null) {
-           document.getElementById("chieuVe").innerText += " "; 
-           document.getElementById("hinhChieuVe").innerText += " ";
-           document.getElementById("sanbayDen2").innerText += " ";
-           document.getElementById("sanbayDi2").innerText += " ";
-           document.getElementById("hinhVe").innerText += " ";
-           document.getElementById("maVe").innerText += " ";
-           document.getElementById("thoigianVe").innerText += " ";
-             document.getElementById("giaVe").innerText += " ";
-             document.getElementById("lstHanhlyVe").disabled = true;
-       }
-       else {
-           document.getElementById("chieuVe").innerText += "Chiều về:";
-           document.getElementById("sanbayDi2").innerText = sanbayDi;
-           document.getElementById("sanbayDen2").innerText = sanbayVe;
-           document.getElementById("ngayVe").innerText = nhapNgayve;
-           document.getElementById("hinhVe").innerText += chuyenVeHinh;
-           document.getElementById("maVe").innerText += chuyenVeMa;
-           document.getElementById("thoigianVe").innerText += chuyenVeThoigian;
-           document.getElementById("giaVe").innerText += chuyenVeGia;
+        if (chuyenVeMa == null) {
+            document.getElementById("chieuVe").innerText += " ";
+            document.getElementById("hinhChieuVe").innerText += " ";
+            document.getElementById("sanbayDen2").innerText += " ";
+            document.getElementById("sanbayDi2").innerText += " ";
+            document.getElementById("hinhVe").innerText += " ";
+            document.getElementById("maVe").innerText += " ";
+            document.getElementById("thoigianVe").innerText += " ";
+            document.getElementById("giaVe").innerText += " ";
+            document.getElementById("lstHanhlyVe").disabled = true;
         }
-      
+        else {
+            document.getElementById("chieuVe").innerText += "Chiều về:";
+            document.getElementById("sanbayDi2").innerText = sanbayDi;
+            document.getElementById("sanbayDen2").innerText = sanbayVe;
+            document.getElementById("ngayVe").innerText = nhapNgayve;
+            document.getElementById("hinhVe").innerText += chuyenVeHinh;
+            document.getElementById("maVe").innerText += chuyenVeMa;
+            document.getElementById("thoigianVe").innerText += chuyenVeThoigian;
+            document.getElementById("giaVe").innerText += chuyenVeGia;
+        }
+
         if (nhapNgayve == null) {
             y = document.getElementById("giaDi").childNodes[0].nodeValue;
             //tách giá vé từ chuỗi ra số nguyên
@@ -415,21 +417,21 @@
             c = parseInt(tien1);
         }
         else {
-             y = document.getElementById("giaDi").childNodes[0].nodeValue;
+            y = document.getElementById("giaDi").childNodes[0].nodeValue;
             //tách giá vé từ chuỗi ra số nguyên
             var m = y.split(" ");
             var n = m[0].split(".");
             var tien1 = 0;
             for (i = 0; i < n.length; i++)
                 tien1 += n[i];
-             z = document.getElementById("giaVe").childNodes[0].nodeValue;
-        var l = z.split(" ");
-        var k = l[0].split(".");
-        var tien2 = 0;
-        for (i = 0; i < k.length; i++)
-                tien2 += k[i]; 
+            z = document.getElementById("giaVe").childNodes[0].nodeValue;
+            var l = z.split(" ");
+            var k = l[0].split(".");
+            var tien2 = 0;
+            for (i = 0; i < k.length; i++)
+                tien2 += k[i];
             c = (parseInt(tien1) + parseInt(tien2)) * parseInt(soHanhKhach);
-        }               
+        }
         //tổng giá vé
         function Tong() {
             document.getElementById('giavemb').innerText = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
@@ -441,7 +443,7 @@
             b = parseInt(a) + parseInt(c);
             document.getElementById('tongcong').innerText = b.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
             document.getElementById("GiaHanhLy").innerText =
-            document.getElementById("GiaHanhLyAn").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
+                document.getElementById("GiaHanhLyAn").innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " VNĐ";
         }
         function HanhLy() {
         }
@@ -452,27 +454,28 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
-       
+            var u = document.getElementById("yourname").value;
+            var p = document.getElementById("phone").value;
+            if (u == "") {
+                alert("Please enter your name");
+                return false;
+            }
+            if (p == "") {
+                alert("Please enter your phone");
+                return false;
+            }
+
+            alert("qua nha")
+
+            return true;
+
         }
         function DatVe() {
             location.href = "ThanhToan.html";
-            var u = document.getElementById("yourname").value;
-            var p = document.getElementById("phone").value;
-            if(u== "") {
-                 alert("Please enter your name");
-                 return false;
-             }
-             if(p == "") {
-                 alert("Please enter your phone");
-                 return false;
-             }
-
-             alert("qua nha")
-
-             return true;
             
+
         }
-        
+
         var x = document.getElementById("btnThanhtoan");
         x.addEventListener("click", TTThanhToan);
         x.addEventListener("click", DatVe);

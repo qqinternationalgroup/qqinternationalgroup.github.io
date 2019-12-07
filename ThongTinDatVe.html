@@ -234,8 +234,8 @@
 
                         </tr>
                         <tr>
-                            <td>  <input id="yourname" name="ten" type="text" required="" placeholder="Nhập tên ở đây ..." style="width:200px;"></td>
-                            <td><input id="phone" name="phone" type="tel" required=""></td>
+                            <td><input id="yourname" name="ten" type="text" placeholder="Nhập tên ở đây ..." style="width:200px;" required></td>
+                            <td><input id="phone" name="phone" type="tel" required></td>
                             <td><input name="mail" type="email"></td>
                         </tr>
 
@@ -283,7 +283,7 @@
                     </tbody>
                 </table>
                 <p align="right">
-                    <button id="btnThanhtoan" onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
+                    <button id="btnThanhtoan" onclick="TTThanhToan()" class="nutbutton" >Tiếp tục thanh toán</button>
                 </p>
             </form>
         </div>
@@ -454,21 +454,7 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
-            var u = document.getElementById("yourname").value;
-            var p = document.getElementById("phone").value;
-            if (u == "") {
-                alert("Please enter your name");
-                return false;
-            }
-            if (p == "") {
-                alert("Please enter your phone");
-                return false;
-            }
-
-            alert("qua nha")
-
-            return true;
-
+           
         }
         function DatVe() {
             location.href = "ThanhToan.html";

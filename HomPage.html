@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>qqbooking-Vé giá rẻ</title>
+    <link rel="shortcut icon" href="images/qq-airline.ico" />
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/btn_top.js"></script>
+    <link href="mainstyle.css" rel="stylesheet" />
+</head>
+<body id="homepage">
+    <header>
+        <div id="header">
+            <div class="divheader" style="width:17%; padding-top: 0px; height:67px ">
+                <a href="index.html"> <img style="height:60px" src="images/Logo co mau.jpg" /></a>
+            </div>
+
+            <div class="divheader">
+                <a href="index.html" style="color: #fff3d2;"> TRANG CHỦ</a>
+            </div>
+
+            <div class="divheader">
+                <a href="GioiThieu.html" style="color: #fff3d2;"> GIỚI THIỆU</a>
+            </div>
+
+            <div class="divheader">
+                <a href="HuongDanBay.html" style="color: #fff3d2;"> KINH NGHIỆM BAY</a>
+            </div>
+
+            <div class="divheader">
+                <a href="#" style="color: #fff3d2;"> CẨM NANG</a>
+            </div>
+
+            <div class="divheader" style="width:19%; padding-top: 10px; height:57px">
+                <a href="tel:+84334447979">
+                    <img style="height:50px" src="images/callnow6.png" />
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <div id="KhungHinhMayBay">
+        <div class="tim_chuyen_bay">
+            <h2> TÌM CHUYẾN BAY</h2>
+            <form class="form" autocomplete="on" action="DanhSachChuyenBay.html" method="get">
+                <div class="loai-ve">
+                    <div class="chon">
+                        <input required type="radio" name="loaiVe" value="Vé khứ hồi" onclick="HaiChieu()" id="idKhu-hoi"/> <label class="label" for="idKhu-hoi">&nbsp;Vé khứ hồi</label>
+                    </div>
+                    <div class="chon">
+                        <input required type="radio" name="loaiVe" value="Vé một chiều" onclick="MotChieu()" id="idMot-chieu" /> <label class="label" for="idMot-chieu">&nbsp;Vé một chiều</label>
+                    </div>
+                </div>
+
+                <br />
+                <div class="san-bay ">
+                    <label class="label">Sân bay đi</label>
+                    <br />
+                    <input required class="input" type="search" placeholder="Sân bay đi" name="nhapSanbaydi" id="fromairport" list="san-bay-di" />
+                    <datalist id="san-bay-di">
+                        <option value="Hà Nội (HAN)" />
+                        <option value="Hải Phòng (HPH)" />
+                        <option value="Điện Biên (DIN)" />
+                        <option value="Thanh Hóa (THD) " />
+                        <option value="Vinh (VII)" />
+                        <option value="Huế (HUI)" />
+                        <option value="Đồng Hới (VDH)" />
+                        <option value="Đà Nẵng (DAD)" />
+                        <option value="Pleiku (PXU)" />
+                        <option value="Tuy Hòa (TBB)" />
+                        <option value="Hồ Chí Minh (SGN)" />
+                        <option value="Nha Trang (CXR)" />
+                        <option value="Đà Lạt (DLI)" />
+                        <option value="Phú Quốc (PQC)" />
+                        <option value="Tam Kỳ (VCL)" />
+                        <option value="Quy Nhơn (UIH)" />
+                        <option value="Cần Thơ (VCA)" />
+                        <option value="Côn Đảo (VCS)" />
+                        <option value="Ban Mê Thuột (BMV)" />
+                        <option value="Rạch Giá (VKG)" />
+                        <option value="Cà Mau (CAH)" />
+                    </datalist>
+                    <br />
+                    <div>
+                        <label class="label">Sân bay đến</label>
+                        <br />
+                        <input required class="input" type="search" placeholder="Sân bay đến" id="nhapSanbayden" name="nhapSanbayden" onchange="sosanhdiadiem()" list="san-bay-den" />
+                        <datalist id="san-bay-den">
+                            <option value="Hà Nội (HAN)" />
+                            <option value="Hải Phòng (HPH)" />
+                            <option value="Điện Biên (DIN)" />
+                            <option value="Thanh Hóa (THD) " />
+                            <option value="Vinh (VII)" />
+                            <option value="Huế (HUI)" />
+                            <option value="Đồng Hới (VDH)" />
+                            <option value="Đà Nẵng (DAD)" />
+                            <option value="Pleiku (PXU)" />
+                            <option value="Tuy Hòa (TBB)" />
+                            <option value="Hồ Chí Minh (SGN)" />
+                            <option value="Nha Trang (CXR)" />
+                            <option value="Đà Lạt (DLI)" />
+                            <option value="Phú Quốc (PQC)" />
+                            <option value="Tam Kỳ (VCL)" />
+                            <option value="Quy Nhơn (UIH)" />
+                            <option value="Cần Thơ (VCA)" />
+                            <option value="Côn Đảo (VCS)" />
+                            <option value="Ban Mê Thuột (BMV)" />
+                            <option value="Rạch Giá (VKG)" />
+                            <option value="Cà Mau (CAH)" />
+                        </datalist>
+                    </div>
+                </div>
+                <br />
+                <div class="ngay-di-den">
+                    <div>
+                        <label class="label">Ngày đi:</label>
+                        <input type="date" class="input" style="width:180px" name="ngayDi" id="ngayDi" required />
+                    </div>
+                    <div>
+                        <label class="label"> Ngày đến:</label>
+                        <input type="date" class="input" id="ngay-den" name="ngayDen" onchange=" sosanhngay()" style="width:180px" required />
+                    </div>
+                </div>
+                <br />
+                <div class="so-nguoi">
+                    <div>
+                        <label class="label">Số lượng hành khách</label>
+                        <br />
+                        <input list="number" type="search" class="input" name="soHanhkhach" required />
+                        <datalist id="number">
+                            <option value="1" />
+                            <option value="2" />
+                            <option value="3" />
+                            <option value="4" />
+                            <option value="5" />
+                            <option value="6" />
+                            <option value="7" />
+                            <option value="8" />
+                            <option value="9" />
+                            <option value="10" />
+
+                        </datalist>
+
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="btn">
+                    <input type="submit" value="TÌM VÉ" class="tim" id="tim" />
+                    <input type="reset" value="XÓA" class="tim" id="xoa" onclick="xoa()" />
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div> <a class="btn-top" href="javascript:void(0);" title="Top" style="display: inline;"></a> </div>
+    <footer>
+        <div class="infoframe">
+            <div class="links">
+                <div class="col" style="background-image:url('images/about-us.png')">
+                    <p class="title">VỀ CHÚNG TÔI</p>
+                    <ul>
+                        <li>
+                            <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="hide-small">
+                            <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                Điều khoản dịch vụ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Instruction.png')">
+                    <p class="title">HƯỚNG DẪN</p>
+                    <ul>
+                        <li>
+                            <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                Hướng dẫn đặt vé máy bay
+                            </a>
+                        </li>
+                        <li>
+                            <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                Hướng dẫn bay
+                            </a>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                </div>
+                <div class="col" style="background-image:url('images/Handbook.png')">
+                    <p class="title">CẨM NANG</p>
+                    <ul>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="thongtin">
+            <div class="wrap">
+                <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <script>
+        function MotChieu() {
+            document.getElementById("ngay-den").disabled = true;
+        }
+        function HaiChieu() {
+            document.getElementById("ngay-den").disabled = false;
+        }
+        function xoa() {
+            document.getElementById("xoa").reset();
+        }
+        function tim() {
+            document.getElementById("tim").reset()
+        }
+        function sosanhdiadiem() {
+            var nhapSanbaydi = document.getElementById("fromairport").value;
+            var nhapSanbayden = document.getElementById("nhapSanbayden").value;
+            if (nhapSanbaydi === nhapSanbayden) {
+                alert("Nhập sân bay đến khác sân bay đi!")
+                document.getElementById("nhapSanbayden").value = ' ';
+            }
+        }
+        function sosanhngay() {
+            var ngayDi = document.getElementById("ngayDi").value;
+            var ngayDen = document.getElementById("ngay-den").value;
+            if (ngayDi > ngayDen) {
+                alert("Hãy nhập ngày về trước ngày đi!");
+                document.getElementById("ngay-den").focus();
+                document.getElementById("ngay-den").value = ' ';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -98,12 +98,11 @@ a:hover {
     margin-top: -10px;
     padding: -30px;
     padding-right: 0px;
-    height: 40px
 }
 
 .divheader {
     width: 16%;
-    height: 47px;
+    height: 42px;
     float: left;
     background: #B1173C;
     padding-top: 20px;
@@ -402,7 +401,7 @@ footer {
     }
                                                                       /*TRANG HOMEPAGE*/
 .form {
-    line-height: 18px
+    line-height: 16px
 }
 
     .form .label {
@@ -432,11 +431,10 @@ footer {
     max-width: 500px;
     margin: 0px auto;
     height: auto;
-    padding: 10px 25px 25px 25px;
+    padding: 5px 25px 25px;
     border-radius: 5px;
     position: relative;
     float: left;
-    width: 37%;
     margin: 30px 30px 30px 60px;
     border: 2px;
     box-sizing: border-box
@@ -445,6 +443,7 @@ footer {
     .tim_chuyen_bay h2 {
         text-align: center;
         letter-spacing: 2px;
+        margin-bottom: 20px;
         color: #0d3c64;
     }
 

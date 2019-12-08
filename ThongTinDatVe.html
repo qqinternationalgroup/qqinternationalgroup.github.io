@@ -30,17 +30,9 @@
         var soHanhKhach = localStorage.getItem("soHanhKhach");
         var nhapNgaydi = localStorage.getItem("nhapNgaydi");
         var nhapNgayve = localStorage.getItem("nhapNgayve");
-        function TTThanhToan() {
-            if (yourname == "") {
-                alert("Bạn chưa nhập tên kìa");
-                return false;
-            }
-            if (phone == "") {
-                alert("Bạn chưa nhập số điện thoại");
-                return false;
-            }
-        }
-        }
+       
+           
+        
     </script>
 </head>
 <body ng-app="myApp" ng-controller="test" onload="Tong()">
@@ -469,7 +461,15 @@
         }
         function DatVe() {
             location.href = "ThanhToan.html";
-
+             if (yourname == "") {
+                alert("Bạn chưa nhập tên kìa");
+                return false;
+            }
+            if (phone == "") {
+                alert("Bạn chưa nhập số điện thoại");
+                return false;
+            }
+        
 
         }
 

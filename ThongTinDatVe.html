@@ -455,26 +455,22 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
+            location.href = "ThanhToan.html";
 
             var ten = document.getElementById("yourname").value
             var sdt = document.getElementById("phone").value
             if (ten == " " || ten == "" || sdt == " " || sdt == "") {
-                return false;
-            }
-            else {
                 return true;
             }
+            else {
+                return false;
+            }
 
         }
-        function DatVe() {
-            location.href = "ThanhToan.html";
-
-
-        }
-
+       
         var x = document.getElementById("btnThanhtoan");
         x.addEventListener("click", TTThanhToan);
-        x.addEventListener("click", DatVe);
+      
     </script>
 
 </body>

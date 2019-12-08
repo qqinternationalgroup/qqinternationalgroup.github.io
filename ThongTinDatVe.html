@@ -30,7 +30,17 @@
         var soHanhKhach = localStorage.getItem("soHanhKhach");
         var nhapNgaydi = localStorage.getItem("nhapNgaydi");
         var nhapNgayve = localStorage.getItem("nhapNgayve");
-
+        function TTThanhToan() {
+            if (yourname == "") {
+                alert("Bạn chưa nhập tên kìa");
+                return false;
+            }
+            if (phone == "") {
+                alert("Bạn chưa nhập số điện thoại");
+                return false;
+            }
+        }
+        }
     </script>
 </head>
 <body ng-app="myApp" ng-controller="test" onload="Tong()">
@@ -235,8 +245,8 @@
 
                         </tr>
                         <tr>
-                            <td><input id="yourname" name="ten" type="text" placeholder="Nhập tên ở đây ..." style="width:200px;" required></td>
-                            <td><input id="phone" name="phone" type="tel" required></td>
+                            <td><input id="yourname" name="ten" type="text" placeholder="Nhập tên ở đây ..." style="width:200px;"></td>
+                            <td><input id="phone" name="phone" type="tel"></td>
                             <td><input name="mail" type="email"></td>
                         </tr>
 
@@ -284,7 +294,7 @@
                     </tbody>
                 </table>
                 <p align="right">
-                    <button  onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
+                    <button type="submit" id="btnThanhtoan" onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
                 </p>
             </form>
         </div>
@@ -455,18 +465,17 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
+
+        }
+        function DatVe() {
             location.href = "ThanhToan.html";
 
-            var ten = document.getElementById("yourname").value
-            var sdt = document.getElementById("phone").value
-            if (ten == " " || ten == "" || sdt == " " || sdt == "") {
-                return true;
-            }
-            
+
         }
-       
-       
-      
+
+        var x = document.getElementById("btnThanhtoan");
+        x.addEventListener("click", TTThanhToan);
+        x.addEventListener("click", DatVe);
     </script>
 
 </body>

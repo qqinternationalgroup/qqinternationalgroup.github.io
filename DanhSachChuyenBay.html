@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Danh sách chuyến bay</title>
-    <link rel="shortcut icon" href="images/qq-airline.ico" />
+    <link rel="shortcut icon" href="Images/qq-airline (1).ico" />
     <style type="text/css">
         @import url('mainstyle.css');
     </style>
@@ -70,14 +70,14 @@
             <h2> TÌM CHUYẾN BAY</h2>
             <form class="form" autocomplete="on" name="frm">
                 <div class="loai-ve">
-                    <input type="radio" name="NloaiVe" id="idKhu-hoi" value="Vé khứ hồi" onclick="radKhuHoi()" /> <label class="label">&nbsp;Vé khứ hồi</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <input type="radio" name="NloaiVe" id="idMot-chieu" value="Vé một chiều"/> <label class="label">&nbsp;Vé một chiều</label>
+                    <input type="radio" name="NloaiVe" id="idKhu-hoi" value="Vé khứ hồi" onclick="radKhuHoi()" /> <label class="label" for="idKhu-hoi">&nbsp;Vé khứ hồi</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="NloaiVe" id="idMot-chieu" value="Vé một chiều" onclick="MotChieu()"/> <label class="label" for="idMot-chieu">&nbsp;Vé một chiều</label>
                 </div>
                 <br />
                 <div class="san-bay ">
                     <label class="label">Sân bay đi</label>
                     <br />
-                    <input class="input" type="text" placeholder="Sân bay đi" list="idSan-bay-di" name="NnhapSanbaydi" />
+                    <input class="input" type="search" placeholder="Sân bay đi" list="idSan-bay-di" name="NnhapSanbaydi" />
                     <datalist id="idSan-bay-di">
                         <option value="Hà Nội (HAN)" />
                         <option value="Hải Phòng (HPH)" />
@@ -105,7 +105,7 @@
                     <div>
                         <label class="label">Sân bay đến</label>
                         <br />
-                        <input class="input" type="text" placeholder="Sân bay đến" onchange="sosanhdiadiem()" list="idSan-bay-den" name="NnhapSanbayden" />
+                        <input class="input" type="search" placeholder="Sân bay đến" onchange="sosanhdiadiem()" list="idSan-bay-den" name="NnhapSanbayden" />
                         <datalist id="idSan-bay-den">
                             <option value="Hà Nội (HAN)" />
                             <option value="Hải Phòng (HPH)" />
@@ -138,7 +138,7 @@
                         <input type="date" class="input" style="width:180px" id="idNgay-di" name="NngayDi" />
                     </div>
                     <div>
-                        <label class="label"> Ngày về:</label>
+                        <label class="label"> Ngày đến:</label>
                         <input type="date" class="input" id="idNgay-den" onchange=" sosanhngay()" style="width:180px" name="NngayDen" />
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                     <div>
                         <label class="label">Số hành khách</label>
                         <br />
-                        <input class="input" style="width:100px" id="idSo-hanh-khach" name="NsoHanhkhach" list="lstSohanhkhach" />
+                        <input type="search" style="width:100px" id="idSo-hanh-khach" name="NsoHanhkhach" list="lstSohanhkhach" />
                         <datalist id="lstSohanhkhach">
                             <option value="1" />
                             <option value="2" />
@@ -164,7 +164,7 @@
                 </div>
                 <br />
                 <div class="btn">
-                    <input type="button" value="TÌM VÉ" class="tim" id="tim" onclick="timVe()" />
+                    <input type="button" value="TÌM VÉ" class="tim" id="tim" />
                     <input type="reset" value="XÓA" class="tim" id="xoa" onclick="xoa()" />
 
                 </div>
@@ -297,7 +297,6 @@
             </div>
         </div>
         <script>
-
             var app = angular.module("QQApp", [])
             app.controller("QQController", function ($scope, $http) {
                 $http({
@@ -312,7 +311,9 @@
             })
         </script>
         <script>
+
             function timVe() {
+                alert("z")
                 var sanbayDi = document.frm.NnhapSanbaydi.value;
                 var sanbayVe = document.frm.NnhapSanbayden.value;
                 var soHanhKhach = document.frm.NsoHanhkhach.value;
@@ -329,11 +330,11 @@
                     localStorage.setItem("sanbayDi2", sanbayVe);
                 }
             }
+
             function xuLychonDi(tr) {
                 hinh1 = tr.cells[0].innerText;
                 ma1 = tr.cells[1].innerText;
                 thoigian1 = tr.cells[2].innerText;;
-
                 gia1 = tr.cells[3].innerText;
                 var strHinh = hinh1;
                 var strMa = ma1;
@@ -355,13 +356,11 @@
                     hinh2 = tr.cells[0].innerText;
                     ma2 = tr.cells[1].innerText;
                     thoigian2 = tr.cells[2].innerText;
-
                     gia2 = tr.cells[3].innerText;
                     var strHinh2 = hinh2;
                     var strMa2 = ma2;
                     var strThoiGian2 = thoigian2;
                     var strGia2 = gia2
-
                     localStorage.setItem("item5", strHinh2);
                     localStorage.setItem("item6", strMa2);
                     localStorage.setItem("item7", strThoiGian2);
@@ -373,23 +372,26 @@
                     localStorage.removeItem("item7");
                     localStorage.removeItem("item8");
                 }
-
             }
             function DatVe() {
                 location.href = "ThongTinDatVe.html";
-
             }
-
-            function DatVe() {
-                location.href = "ThongTinDatVe.html";
-            }
+         
             function MotChieu() {
-                if(document.getElementById("idMot-chieu").checked){
-                                    
-                document.getElementById("idNgay-den").disabled = true;
+                if (document.getElementById("idSo-hanh-khach").value != null) {
+                    document.getElementById("idSan-bay-den").disabled;
+                document.getElementById("idSan-bay-di").disabled;
+
+                
+            }
+                if (document.getElementById("idMot-chieu").checked) {
+                    document.getElementById("idNgay-den").disabled = true;
+                    var list = document.getElementById("d");
+                    while (list.hasChildNodes()) {
+                        list.removeChild(list.firstChild);
+                    }
+
                 }
-
-
             }
             function radKhuHoi() {
                 document.getElementById("idNgay-den").disabled = false;
@@ -398,33 +400,35 @@
                 document.getElementById("xoa").reset();
             }
             function tim() { document.getElementById("tim").reset() }
+
             document.frm.NloaiVe.value = loaiVe;
             document.frm.NnhapSanbaydi.value = nhapSanbaydi;
             document.frm.NnhapSanbayden.value = nhapSanbayden;
             document.frm.NsoHanhkhach.value = layUrlSohanhkhach;
             document.frm.NngayDi.value = ngayDi;
             document.frm.NngayDen.value = ngayDen;
+
             function layInput() {
                 document.getElementById("idChieuDi").value = "";
+
                 document.getElementById("idChieuDen").value = "";
                 var layNgaydi = document.frm.NngayDi.value;
-                var layNgayden = document.frm.NngayDen.value;
                 var laySanbayden = document.frm.NnhapSanbayden.value;
                 var laySanbaydi = document.frm.NnhapSanbaydi.value;
-                var layChieudi = "Chiều đi: " + laySanbaydi + " đến " + laySanbayden + " - " + layNgaydi;
-                document.getElementById("idChieuDi").value += layChieudi;
-                var layChieuden = "Chiều về: " + laySanbayden + " đến " + laySanbaydi + " - " + layNgayden;
-                document.getElementById("idChieuDen").value += layChieuden;
-            }
-            function disableChieuVe() {
-                if (document.getElementById("idMot-chieu").checked) {
-                    var list = document.getElementById("d");
-                    while (list.hasChildNodes()) {
-                        list.removeChild(list.firstChild);
-                    }
+                if (document.getElementById("idNgay-den").disabled == true) {
+                    document.getElementById("idChieuDen").value += null;
+
+
+                }
+                else {
+                    var layChieudi = "Chiều đi: " + laySanbaydi + " đến " + laySanbayden + " - " + layNgaydi;
+                    document.getElementById("idChieuDi").value += layChieudi;
+                    var layChieuden = "Chiều về: " + laySanbayden + " đến " + laySanbaydi + " - " + layNgayden;
+                    document.getElementById("idChieuDen").value += layChieuden;
                 }
 
             }
+            
             function sosanhdiadiem() {
                 var nhapSanbaydi = document.getElementById("fromairport").value;
                 var nhapSanbayden = document.getElementById("nhapSanbayden").value;
@@ -437,19 +441,16 @@
                 var ngayDi = document.getElementById("ngayDi").value;
                 var ngayDen = document.getElementById("ngayDen").value;
                 if (ngayDi > ngayDen) {
-                    alert("Hãy nhập ngày về sau ngày đi!");
+                    alert("Hãy nhập ngày về trước ngày đi!");
                     document.getElementById("ngayDen").focus();
                     document.getElementById("ngayDen").value = ' ';
                 }
             }
             var x = document.getElementById("tim");
             x.addEventListener("click", layInput);
-            x.addEventListener("click", disableChieuVe);
+            x.addEventListener("click", timVe);
 
-            var layChieudi = "Chiều đi: " + nhapSanbaydi + " đến " + nhapSanbayden + " - " + ngayDi;
-            document.getElementById("idChieuDi").value += layChieudi;
-            var layChieuden = "Chiều về: " + nhapSanbayden + " đến " + nhapSanbaydi + " - " + ngayDen;
-            document.getElementById("idChieuDen").value += layChieuden;
+       
         </script>
 
 

@@ -284,7 +284,7 @@
                     </tbody>
                 </table>
                 <p align="right">
-                    <button id="btnThanhtoan" onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
+                    <button  onclick="TTThanhToan()" class="nutbutton">Tiếp tục thanh toán</button>
                 </p>
             </form>
         </div>
@@ -462,14 +462,10 @@
             if (ten == " " || ten == "" || sdt == " " || sdt == "") {
                 return true;
             }
-            else {
-                return false;
-            }
-
+            
         }
        
-        var x = document.getElementById("btnThanhtoan");
-        x.addEventListener("click", TTThanhToan);
+       
       
     </script>
 

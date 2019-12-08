@@ -432,7 +432,7 @@ footer {
     max-width: 500px;
     margin: 0px auto;
     height: auto;
-    padding: 25px;
+    padding: 10px 25px 25px 25px;
     border-radius: 5px;
     position: relative;
     float: left;
@@ -445,7 +445,6 @@ footer {
     .tim_chuyen_bay h2 {
         text-align: center;
         letter-spacing: 2px;
-        margin-bottom: 20px;
         color: #0d3c64;
     }
 

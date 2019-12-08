@@ -138,7 +138,7 @@
             <img src="images/B2.PNG" height="50" />
         </div>
         <div id="ThongTinDatVe">
-            <form onload="motChieu()" action="XacNhanDatVe.html" method="get">
+            <form onload="motChieu()" action="ThanhToan.html" method="get">
 
                 <!--THÔNG TIN CHUYẾN BAY-->
                 <table>
@@ -456,7 +456,6 @@
             localStorage.setItem("item88", Giahanhly);
             var tongtiencanthanhtoan = document.getElementById("tongcong").innerText;
             localStorage.setItem("item99", tongtiencanthanhtoan);
-           
 
             var yourname = document.getElementById("yourname").value;
             var phone = document.getElementById("phone").value;
@@ -469,16 +468,10 @@
               alert("Bạn chưa nhập số điện thoại");
                 return false;
             }
+             location.href = "ThanhToan.html";
         }
-         function DatVe() {
-            location.href = "ThanhToan.html";
+      
 
-
-        }
-
-       
-
-       
     </script>
 
 </body>

@@ -81,7 +81,7 @@
                     <div style="float:left"><b>Giá vé: </b></div>
                     <div class="color" style="float:right" id="Tonggiavemaybay"></div>
                     <br />
-                    <div style="float:left"><b>Giá hành lý: </b></div> 
+                    <div style="float:left"><b>Giá hành lý: </b></div>
                     <div class="color" style="float:right;" id="Giahanhly"></div>
                     <br />
                 </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-        <script type="text/javascript">
+    <script type="text/javascript">
             var Giahanhly = localStorage.getItem("item88");
             var Ntongcong = localStorage.getItem("item99");
             var Giavemaybay = localStorage.getItem("item77");
@@ -111,112 +111,108 @@
             document.getElementById("Ngaybay1").innerText += Ngaybay1;
             document.getElementById("Sanbayve1").innerText += Sanbayve1;
             document.getElementById("Sanbaydi1").innerText += Sanbaydi1;
-
             document.getElementById("Giavebaydi").innerText += Giavebaydi;
-            document.getElementById("Thoigianbaydi").innerText += Thoigianbaydi;
+        document.getElementById("Thoigianbaydi").innerText += Thoigianbaydi;
             document.getElementById("Machuyenbaydi").innerText += Machuyenbaydi;
-            if (Ngaybay2 == null) {
-                document.getElementById("chieuVe").innerText += " ";
-                document.getElementById("hinhChieuVe").innerText += " ";
-                document.getElementById("Ngaybay2").innerText += " ";
-                document.getElementById("Sanbayve2").innerText += " ";
-                document.getElementById("Sanbaydi2").innerText += " ";
-                document.getElementById("Giavebayve").innerText += " ";
-                document.getElementById("Thoigianbayve").innerText += " ";
-                document.getElementById("Machuyenbayve").innerText += " ";
+        if (Machuyenbayve == null) {
+                document.getElementById("chieuVe").innerText = " ";
+                document.getElementById("hinhChieuVe").innerText = " ";
+                document.getElementById("Ngaybay2").innerText = " ";
+                document.getElementById("Sanbayve2").innerText = " ";
+                document.getElementById("Sanbaydi2").innerText = " ";
+                document.getElementById("Giavebayve").innerText = " ";
+                document.getElementById("Thoigianbayve").innerText = " ";
+                document.getElementById("Machuyenbayve").innerText = " ";
+                
             }
+        
             else {
                 document.getElementById("chieuVe").innerHTML = "Chiều về:";
                 document.getElementById("hinhChieuVe").innerText += " đến ";
-
-
                 document.getElementById("Ngaybay2").innerText += Ngaybay2;
                 document.getElementById("Sanbayve2").innerText += Sanbayve2;
                 document.getElementById("Sanbaydi2").innerText += " " + Sanbaydi2;
-
                 document.getElementById("Giavebayve").innerText += Giavebayve;
                 document.getElementById("Thoigianbayve").innerText += Thoigianbayve;
                 document.getElementById("Machuyenbayve").innerText += Machuyenbayve;
-
             }
-
             document.getElementById("Tonggiavemaybay").innerText = Giavemaybay;
             document.getElementById("Nntongcong").innerText = Ntongcong;
             document.getElementById("Giahanhly").innerText = Giahanhly;
-        </script>
-        <footer>
-                <div class="infoframe">
-                    <div class="links">
-                        <div class="col" style="background-image:url('images/about-us.png')">
-                            <p class="title">VỀ CHÚNG TÔI</p>
-                            <ul>
-                                <li>
-                                    <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
-                                        Giới thiệu
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
-                                        Liên hệ
-                                    </a>
-                                </li>
-                                <li class="hide-small">
-                                    <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
-                                        Điều khoản dịch vụ
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col" style="background-image:url('images/Instruction.png')">
-                            <p class="title">HƯỚNG DẪN</p>
-                            <ul>
-                                <li>
-                                    <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
-                                        Hướng dẫn đặt vé máy bay
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
-                                        Hướng dẫn bay
-                                    </a>
-                                </li>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
-                            </ul>
-                        </div>
-                        <div class="col" style="background-image:url('images/Handbook.png')">
-                            <p class="title">CẨM NANG</p>
-                            <ul>
-                                <li>
-                                    <a href="/" class="tx-link">
-                                        &nbsp;
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/" class="tx-link">
-                                        &nbsp;
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/" class="tx-link">
-                                        &nbsp;
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+    </script>
+    <footer>
+        <div class="infoframe">
+            <div class="links">
+                <div class="col" style="background-image:url('images/about-us.png')">
+                    <p class="title">VỀ CHÚNG TÔI</p>
+                    <ul>
+                        <li>
+                            <a href="GioiThieu.html" class="tx-link" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+84334447979" class="tx-link" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                        <li class="hide-small">
+                            <a href="/DieuKhoan.html" class="tx-link" title="Điều khoản dịch vụ">
+                                Điều khoản dịch vụ
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div id="thongtin">
-                    <div class="wrap">
-                        <p class="com-name">QQ INTERNATIONAL GROUP</p>
-                        <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
-                        <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
-                        <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
-
-                    </div>
+                <div class="col" style="background-image:url('images/Instruction.png')">
+                    <p class="title">HƯỚNG DẪN</p>
+                    <ul>
+                        <li>
+                            <a href="HuongDanDatVe.html" class="tx-link" title="Hướng dẫn đặt vé máy bay">
+                                Hướng dẫn đặt vé máy bay
+                            </a>
+                        </li>
+                        <li>
+                            <a href="HuongDanBay.html" class="tx-link" title="Hướng dẫn bay">
+                                Hướng dẫn bay
+                            </a>
+                        </li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
                 </div>
+                <div class="col" style="background-image:url('images/Handbook.png')">
+                    <p class="title">CẨM NANG</p>
+                    <ul>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/" class="tx-link">
+                                &nbsp;
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="thongtin">
+            <div class="wrap">
+                <p class="com-name">QQ INTERNATIONAL GROUP</p>
+                <p>Giấy CNĐKDN: 0317135879 cấp ngày 18/12/2017</p>
+                <p>Nơi cấp: Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư TP.HCM</p>
+                <p> Địa chỉ: Tầng 61, Tòa nhà  Bitexco, Số 2, đường Hải Triều, Quận 1, TP.HCM.</p>
 
-            </footer>
+            </div>
+        </div>
+
+    </footer>
 
 </body>
 </html>

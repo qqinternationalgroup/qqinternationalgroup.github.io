@@ -235,8 +235,8 @@
 
                         </tr>
                         <tr>
-                            <td><input id="yourname" name="yourname" type="text" placeholder="Nhập tên ở đây ..." style="width:200px;"required="required" ></td>
-                            <td><input id="phone" name="phone" type="tel" required="required"></td>
+                            <td><input id="yourname" name="yourname" type="text" placeholder="Nhập tên ở đây ..." style="width:200px;" required></td>
+                            <td><input id="phone" name="phone" type="tel" required></td>
                             <td><input name="mail" type="email"></td>
                         </tr>
 
@@ -459,7 +459,7 @@
             var ten = document.getElementById("yourname").value
             var sdt = document.getElementById("phone").value
             if (ten == " " || ten == "" || sdt == " " || sdt == "") {
-                return true;
+                return false;
             }
 
         }

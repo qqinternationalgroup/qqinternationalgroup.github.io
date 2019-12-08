@@ -28,6 +28,7 @@
             localStorage.setItem("sanbayVe2", nhapSanbaydi);
             localStorage.setItem("sanbayDi2", nhapSanbayden);
         }
+      
     </script>
 </head>
 <body id="homepage" ng-app="QQApp" ng-controller="QQController" onload="MotChieu()">
@@ -71,7 +72,7 @@
             <form class="form" autocomplete="on" name="frm">
                 <div class="loai-ve">
                     <input type="radio" name="NloaiVe" id="idKhu-hoi" value="Vé khứ hồi" onclick="radKhuHoi()" /> <label class="label" for="idKhu-hoi">&nbsp;Vé khứ hồi</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <input type="radio" name="NloaiVe" id="idMot-chieu" value="Vé một chiều" onclick="MotChieu()"/> <label class="label" for="idMot-chieu">&nbsp;Vé một chiều</label>
+                    <input type="radio" name="NloaiVe" id="idMot-chieu" value="Vé một chiều" onclick="MotChieu()" /> <label class="label" for="idMot-chieu">&nbsp;Vé một chiều</label>
                 </div>
                 <br />
                 <div class="san-bay ">
@@ -164,8 +165,8 @@
                 </div>
                 <br />
                 <div class="btn">
-                    <input type="button" value="TÌM VÉ" class="tim" id="tim" />
-                    <input type="reset" value="XÓA" class="tim" id="xoa" onclick="xoa()" />
+                    <input type="button" value="TÌM VÉ" class="tim" id="tim" onclick="suaInput();"/>
+                    <input type="reset" value="XÓA" class="tim" id="xoa" onclick="xoa();" />
 
                 </div>
 
@@ -178,7 +179,7 @@
                     <tr>
                         <td colspan="5" height="40px" style="background-color:#B1173C; color:#FFF3D2; vertical-align:middle;text-align:left;">
                             <input style="border:none; background-color:#B1173C;color:#FFF3D2;width:90%; height:100%; font-family: 'Ubuntu', sans-serif" ;
-                                   id="idChieuDi" name="NChieuDi" />
+                                   id="idChieuDi"/>
                         </td>
                     </tr>
                     <tr>
@@ -237,7 +238,7 @@
                     <tr>
                         <td colspan="5" height="40px" style="background-color:#B1173C; color:#FFF3D2; vertical-align:middle;text-align:left;">
                             <input style="border:none; background-color:#B1173C;color:#FFF3D2;width:90%; height:100%; font-family: 'Ubuntu', sans-serif"
-                                   id="idChieuDen" name="NChieuDen" />
+                                   id="idChieuDen"/>
                         </td>
                     </tr>
                     <tr>
@@ -311,26 +312,33 @@
             })
         </script>
         <script>
+                   document.frm.NloaiVe.value = loaiVe;
+            document.frm.NnhapSanbaydi.value = nhapSanbaydi;
+            document.frm.NnhapSanbayden.value = nhapSanbayden;
+            document.frm.NsoHanhkhach.value = layUrlSohanhkhach;
+            document.frm.NngayDi.value = ngayDi;
+            document.frm.NngayDen.value = ngayDen;
+             var layChieudi = "Chiều đi: " + nhapSanbaydi + " đến " + nhapSanbayden + " - " + ngayDi;
+                document.getElementById("idChieuDi").value += layChieudi;
+                    var layChieuden = "Chiều về: " + nhapSanbayden + " đến " + nhapSanbaydi + " - " + ngayDen;
+            document.getElementById("idChieuDen").value += layChieuden;
+            
+             function suaInput() {
+                 var str = document.getElementById("idChieuDi");
+                 str.parentNode.removeChild(str);
 
-            function timVe() {
-                alert("z")
-                var sanbayDi = document.frm.NnhapSanbaydi.value;
-                var sanbayVe = document.frm.NnhapSanbayden.value;
-                var soHanhKhach = document.frm.NsoHanhkhach.value;
-                var nhapNgaydi = document.frm.NngayDi.value;
-                var nhapNgayve = document.frm.NngayDen.value;
-                localStorage.setItem("sanbayDi", sanbayDi);
-                localStorage.setItem("sanbayVe", sanbayVe);
-                localStorage.setItem("soHanhKhach", soHanhKhach);
-                localStorage.setItem("nhapNgaydi", nhapNgaydi);
-                localStorage.setItem("nhapNgayve", nhapNgayve);
-                localStorage.setItem("nhapNgayve2", nhapNgayve);
-                if (document.getElementById("idNgay-den").disabled == false) {
-                    localStorage.setItem("sanbayVe2", sanbayDi);
-                    localStorage.setItem("sanbayDi2", sanbayVe);
-                }
+                 alert(str)
+
+               var layChieudi = "Chiều đi: " + nhapSanbaydi + " đến " + nhapSanbayden + " - " + ngayDi;
+                document.getElementById("idChieuDi").value += layChieudi;
+                    var layChieuden = "Chiều về: " + nhapSanbayden + " đến " + nhapSanbaydi + " - " + ngayDen;
+                    document.getElementById("idChieuDen").value += layChieuden;
             }
+          
+         
 
+
+             
             function xuLychonDi(tr) {
                 hinh1 = tr.cells[0].innerText;
                 ma1 = tr.cells[1].innerText;
@@ -374,23 +382,37 @@
                 }
             }
             function DatVe() {
+                var sanbayDi = document.frm.NnhapSanbaydi.value;
+                var sanbayVe = document.frm.NnhapSanbayden.value;
+
+                var soHanhKhach = document.frm.NsoHanhkhach.value;
+                var nhapNgaydi = document.frm.NngayDi.value;
+                var nhapNgayve = document.frm.NngayDen.value;
+                localStorage.setItem("sanbayDi", sanbayDi);
+                localStorage.setItem("sanbayVe", sanbayVe);
+                localStorage.setItem("soHanhKhach", soHanhKhach);
+                localStorage.setItem("nhapNgaydi", nhapNgaydi);
+                localStorage.setItem("nhapNgayve", nhapNgayve);
+                localStorage.setItem("nhapNgayve2", nhapNgayve);
+                if (document.getElementById("idNgay-den").disabled == false) {
+                    localStorage.setItem("sanbayVe2", sanbayDi);
+                    localStorage.setItem("sanbayDi2", sanbayVe);
+                }
                 location.href = "ThongTinDatVe.html";
             }
-         
+
             function MotChieu() {
                 if (document.getElementById("idSo-hanh-khach").value != null) {
                     document.getElementById("idSan-bay-den").disabled;
-                document.getElementById("idSan-bay-di").disabled;
+                    document.getElementById("idSan-bay-di").disabled;
 
-                
-            }
+                }
                 if (document.getElementById("idMot-chieu").checked) {
                     document.getElementById("idNgay-den").disabled = true;
                     var list = document.getElementById("d");
                     while (list.hasChildNodes()) {
                         list.removeChild(list.firstChild);
                     }
-
                 }
             }
             function radKhuHoi() {
@@ -400,35 +422,9 @@
                 document.getElementById("xoa").reset();
             }
             function tim() { document.getElementById("tim").reset() }
-
-            document.frm.NloaiVe.value = loaiVe;
-            document.frm.NnhapSanbaydi.value = nhapSanbaydi;
-            document.frm.NnhapSanbayden.value = nhapSanbayden;
-            document.frm.NsoHanhkhach.value = layUrlSohanhkhach;
-            document.frm.NngayDi.value = ngayDi;
-            document.frm.NngayDen.value = ngayDen;
-
-            function layInput() {
-                document.getElementById("idChieuDi").value = "";
-
-                document.getElementById("idChieuDen").value = "";
-                var layNgaydi = document.frm.NngayDi.value;
-                var laySanbayden = document.frm.NnhapSanbayden.value;
-                var laySanbaydi = document.frm.NnhapSanbaydi.value;
-                if (document.getElementById("idNgay-den").disabled == true) {
-                    document.getElementById("idChieuDen").value += null;
-
-
-                }
-                else {
-                    var layChieudi = "Chiều đi: " + laySanbaydi + " đến " + laySanbayden + " - " + layNgaydi;
-                    document.getElementById("idChieuDi").value += layChieudi;
-                    var layChieuden = "Chiều về: " + laySanbayden + " đến " + laySanbaydi + " - " + layNgayden;
-                    document.getElementById("idChieuDen").value += layChieuden;
-                }
-
-            }
+      
             
+
             function sosanhdiadiem() {
                 var nhapSanbaydi = document.getElementById("fromairport").value;
                 var nhapSanbayden = document.getElementById("nhapSanbayden").value;
@@ -446,11 +442,8 @@
                     document.getElementById("ngayDen").value = ' ';
                 }
             }
-            var x = document.getElementById("tim");
-            x.addEventListener("click", layInput);
-            x.addEventListener("click", timVe);
-
-       
+           
+                
         </script>
 
 

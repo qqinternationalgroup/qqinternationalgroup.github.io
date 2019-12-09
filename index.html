@@ -117,7 +117,7 @@
                         <input type="date" class="input" style="width:180px" name="ngayDi" id="ngayDi" required />
                     </div>
                     <div>
-                        <label class="label"> Ngày đến</label><br />
+                        <label class="label"> Ngày về</label><br />
                         <input type="date" class="input" id="ngay-den" name="ngayDen" onchange=" sosanhngay()" style="width:180px" required />
                     </div>
                 </div>
@@ -256,7 +256,7 @@
             var ngayDi = document.getElementById("ngayDi").value;
             var ngayDen = document.getElementById("ngay-den").value;
             if (ngayDi > ngayDen) {
-                alert("Hãy nhập ngày về trước ngày đi!");
+                alert("Hãy nhập ngày về sau ngày đi!");
                 document.getElementById("ngay-den").focus();
                 document.getElementById("ngay-den").value = ' ';
             }

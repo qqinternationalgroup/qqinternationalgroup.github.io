@@ -379,8 +379,9 @@ footer {
     border:2px solid white;
 }
 
+   
     #HuongDanDatVe div {
-        font-size: 25px;
+        font-size: 16px;
     }
 
     #HuongDanDatVe dl {
@@ -388,8 +389,8 @@ footer {
         font-weight: 400;
     }
 
-        #HuongDanDatVe dl dt {
-            font-size: 16px;
+        #HuongDanDatVe dl dd {
+            font-size: 21px;
             font-weight: bold;
         }
         #HuongDanDatVe dl dd {

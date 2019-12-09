@@ -298,6 +298,7 @@
             </div>
         </div>
         <script>
+            // hiện bảng ds chuyến bay
             var app = angular.module("QQApp", [])
             app.controller("QQController", function ($scope, $http) {
                 $http({
@@ -312,17 +313,22 @@
             })
         </script>
         <script>
+            //lấy dl từ URL
                    document.frm.NloaiVe.value = loaiVe;
             document.frm.NnhapSanbaydi.value = nhapSanbaydi;
             document.frm.NnhapSanbayden.value = nhapSanbayden;
             document.frm.NsoHanhkhach.value = layUrlSohanhkhach;
             document.frm.NngayDi.value = ngayDi;
             document.frm.NngayDen.value = ngayDen;
+            
+            //hiện dll lên header ds chuyếnbay
              var layChieudi = "Chiều đi: " + nhapSanbaydi + " đến " + nhapSanbayden + " - " + ngayDi;
                 document.getElementById("idChieuDi").value += layChieudi;
                     var layChieuden = "Chiều về: " + nhapSanbayden + " đến " + nhapSanbaydi + " - " + ngayDen;
             document.getElementById("idChieuDen").value += layChieuden;
             
+            //dl từ form update jheader ds chuyen bay
+         
              function suaInput() {
                  var str = document.getElementById("idChieuDi");
                  str.parentNode.removeChild(str);
@@ -338,7 +344,7 @@
          
 
 
-             
+             //lưu dòng ds chiều đi
             function xuLychonDi(tr) {
                 hinh1 = tr.cells[0].innerText;
                 ma1 = tr.cells[1].innerText;
@@ -359,6 +365,7 @@
                     localStorage.removeItem("item8");
                 }
             }
+             //lưu dòng ds chiều về
             function xuLychonVe(tr) {
                 if (document.getElementById("idNgay-den").disabled != true) {
                     hinh2 = tr.cells[0].innerText;
@@ -381,6 +388,7 @@
                     localStorage.removeItem("item8");
                 }
             }
+            //lưu dl từ form
             function DatVe() {
                 var sanbayDi = document.frm.NnhapSanbaydi.value;
                 var sanbayVe = document.frm.NnhapSanbayden.value;
@@ -400,6 +408,8 @@
                 }
                 location.href = "ThongTinDatVe.html";
             }
+            
+            //bỏ ds chiều về khi ở chế độ một chiều
 
             function MotChieu() {
                 if (document.getElementById("idSo-hanh-khach").value != null) {
@@ -415,16 +425,20 @@
                     }
                 }
             }
+            
+            //input ngày đến active khi ở khứ hồi
             function radKhuHoi() {
                 document.getElementById("idNgay-den").disabled = false;
             }
+            
+            //reset trang
             function xoa() {
                 document.getElementById("xoa").reset();
             }
             function tim() { document.getElementById("tim").reset() }
       
             
-
+            //yêu cầu nhập sân bay đến khác sân bay đi
             function sosanhdiadiem() {
                 var nhapSanbaydi = document.getElementById("fromairport").value;
                 var nhapSanbayden = document.getElementById("nhapSanbayden").value;
@@ -433,6 +447,7 @@
                     document.getElementById("nhapSanbayden").value = ' ';
                 }
             }
+            //yêu cầu nhập ngày về sau ngày đi
             function sosanhngay() {
                 var ngayDi = document.getElementById("ngayDi").value;
                 var ngayDen = document.getElementById("ngayDen").value;

@@ -5,22 +5,22 @@
     background-color: #DDDDDD;
     font-size: 16px;
     margin-left: -10px;
-    width:100.67%;
-    min-width:1300px
-
+    width: 100.67%;
+    min-width: 1300px
 }
 
 p + p {
     margin: 10px 0 0
 }
 
-h1{
-    text-align:center
+h1 {
+    text-align: center
 }
 
 h2 {
     color: #B1173C;
 }
+
 a {
     color: #B1173C;
     font-weight: 500;
@@ -29,11 +29,11 @@ a {
     cursor: pointer
 }
 
-a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid;
-    font-style:italic
-}
+    a:hover {
+        text-decoration: none;
+        border-bottom: 1px solid;
+        font-style: italic
+    }
 
 .cangiua {
     display: flex;
@@ -92,7 +92,7 @@ a:hover {
     height: 80px;
     z-index: 9999;
 }
-                                                                     /*Bắt đầu header*/
+/*Bắt đầu header*/
 #header {
     width: 100%;
     margin-top: -10px;
@@ -110,8 +110,8 @@ a:hover {
     margin-right: 0px;
     text-align: center;
 }
-                                                                     /*Kết thúc header*/
-                                                                     /*Bắt đầu footer*/
+/*Kết thúc header*/
+/*Bắt đầu footer*/
 footer {
     clear: both;
     display: block;
@@ -182,7 +182,7 @@ footer {
         text-decoration: none;
         border-bottom: 1px solid;
     }
-                                                                                             /*Phần thông tin doanh nghiệp*/
+/*Phần thông tin doanh nghiệp*/
 #thongtin {
     border-top: 3px solid #c5ab05;
     background-color: #DDDDDD;
@@ -206,9 +206,9 @@ footer {
     font-weight: bold;
 }
 
-                                                                       /*Kết thúc footer*/
-                                                                       /*TRANG GIỚI THIỆU*/
-                                                                                              /*Lịch sử và phát triển*/
+/*Kết thúc footer*/
+/*TRANG GIỚI THIỆU*/
+/*Lịch sử và phát triển*/
 
 .section {
     max-width: 100%;
@@ -270,7 +270,7 @@ footer {
         color: #000;
         margin: 0
     }
-                                                                                               /*Chiến lược, tầm nhìn, sứ mệnh, giá trị cốt lõi*/
+/*Chiến lược, tầm nhìn, sứ mệnh, giá trị cốt lõi*/
 .section {
     padding: 30px 0px 60px 0px;
     background: #fff;
@@ -333,20 +333,21 @@ footer {
     background-repeat: no-repeat;
 }
 
-                                                                      /*TRANG QUY ĐỊNH ĐIỀU KHOẢN */
+/*TRANG QUY ĐỊNH ĐIỀU KHOẢN */
 #dieukhoan {
     margin: 0 20%;
 }
-        #dieukhoan h1 + p {
-            margin: 30px;
-        }
+
+    #dieukhoan h1 + p {
+        margin: 30px;
+    }
 
     #dieukhoan li + li {
         margin: 10px;
     }
 
 
-                                                                      /*TRANG HƯỚNG DẪN BAY*/
+/*TRANG HƯỚNG DẪN BAY*/
 
 #HuongDanBay a {
     color: black;
@@ -368,18 +369,18 @@ footer {
     width: 20%;
     font-weight: bold
 }
-                                                                      /*TRANG HƯỚNG DẪN ĐẶT VÉ*/
+/*TRANG HƯỚNG DẪN ĐẶT VÉ*/
 #HuongDanDatVe {
     margin: 0 20%;
-    font-weight:400
+    font-weight: 400
 }
 
-#HuongDanDatVe img{
-    width:100%;
-    border:2px solid white;
-}
+    #HuongDanDatVe img {
+        width: 100%;
+        border: 2px solid white;
+    }
 
-   
+
     #HuongDanDatVe div {
         font-size: 16px;
     }
@@ -393,6 +394,7 @@ footer {
             font-size: 21px;
             font-weight: bold;
         }
+
         #HuongDanDatVe dl dd {
             font-weight: 400;
             font-size: 16px;
@@ -401,7 +403,7 @@ footer {
     #HuongDanDatVe b {
         color: #B1173C;
     }
-                                                                      /*TRANG HOMEPAGE*/
+/*TRANG HOMEPAGE*/
 .form {
     line-height: 16px
 }
@@ -482,6 +484,16 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+.brand {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-justify-content: space-around; /* Safari */
+    justify-content: space-around;
+    margin-bottom:4px;
+    margin-bottom:4px;
+
+}
+    
 
 .btn {
     display: flex;
@@ -502,7 +514,7 @@ footer {
 }
 /*Gợi ý nhập*/
 
-                                                                       /*TRANG DANH SÁCH CHUYẾN BAY*/
+/*TRANG DANH SÁCH CHUYẾN BAY*/
 #CacBangDanhSach {
     display: flex;
     float: right;
@@ -540,7 +552,7 @@ footer {
     margin: 30px 0px 30px 0px;
     border: blue 2px;
 }
-                                                                       /*TRANG THÔNG TIN ĐẶT VÉ*/
+/*TRANG THÔNG TIN ĐẶT VÉ*/
 #ThongTinDatVe table {
     width: 100%;
     background-color: #ffffff;
@@ -558,7 +570,7 @@ footer {
 #ThongTinDatVe form {
     margin: 30px 200px 30px 200px;
 }
-                                                                      /*TRANG THANH TOÁN*/
+/*TRANG THANH TOÁN*/
 .formThanhToan {
     margin-left: 100px;
     margin-right: 100px;
@@ -568,7 +580,7 @@ footer {
         background-color: #808080;
         color: white
     }
-                                                                      /*TRANG XÁC NHẬN ĐẶT VÉ*/
+/*TRANG XÁC NHẬN ĐẶT VÉ*/
 #thongtinchuyenbay {
     display: block;
     float: left;
@@ -584,8 +596,9 @@ footer {
     padding: 12px;
     text-align: center
 }
-    .chuyenbay div{
-        float:left
+
+    .chuyenbay div {
+        float: left
     }
 
 #thongtinthanhtoan {
@@ -619,6 +632,4 @@ footer {
 .color {
     color: #B1173C;
     font-weight: bold;
-}                                                                   
-
-                                                                      
+}
